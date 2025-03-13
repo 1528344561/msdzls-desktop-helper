@@ -13,15 +13,68 @@ export default defineUserConfig({
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
   theme: recoTheme({
-    logo: "/logo.png",
+    logo: "/docs/public/icon.ico",
     author: "Rainy",
-    authorAvatar: "/head.png",
+    authorAvatar: "https://q1.qlogo.cn/g?b=qq&nk=2254399813&s=100",
     docsRepo: "https://github.com/vuepress-reco/vuepress-theme-reco-next",
     docsBranch: "main",
     docsDir: "example",
+    lastUpdated: true,
     lastUpdatedText: "",
     // series 为原 sidebar
     series: {
+      "/docs/guide/":[
+        {
+          text:"快速上手",
+          children:[{
+            text:"安装",
+            children:[
+              {
+                text:"前置知识",
+                link:"pre_knowledge"
+              },{
+                text:"Flash",
+                link:"install_flash.md"
+              },{
+                text:"开始安装",
+                link:"introduce"
+              }
+            
+            ]
+          },
+          {
+            text:"无法打开?",
+            link:"main_window_enter_failed",
+            children:[{
+              text:"打不开主程序",
+              link:"main_window_enter_failed"
+            },{
+              text:"打不开游戏窗口",
+              link:"game_window_enter_failed"
+            },{
+              "text":"无法进入",
+              "link":"game_enter_failed"
+            }]
+          },{
+            "text":"软件配置",
+            "link":"config"
+          }]
+        },
+        {
+          text:"使用",
+          children:[{
+            text:"挂机",
+            link:"auto_play"
+          },
+            {
+            text:"公会任务",
+            link:"guild_task"
+          },{
+            text:"WPE",
+            link:"wpe"
+          }]
+        },
+      ],
       "/docs/theme-reco/": [
         {
           text: "module one",
