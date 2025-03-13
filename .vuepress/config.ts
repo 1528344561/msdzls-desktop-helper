@@ -13,7 +13,7 @@ export default defineUserConfig({
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
   theme: recoTheme({
-    logo: "/docs/public/icon.ico",
+    logo: "https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/2/4/0x24a10800.png",
     author: "Rainy",
     authorAvatar: "https://q1.qlogo.cn/g?b=qq&nk=2254399813&s=100",
     docsRepo: "https://github.com/vuepress-reco/vuepress-theme-reco-next",
