@@ -2,38 +2,39 @@ name: Deploy VuePress Reco Site
 
 on:
   push:
-    branches:
-      - main  # 根据你的主分支名称调整（可能是 master）
-  pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 显式声明写入权限
 
     steps:
-    - name: Checkout code
+    - name: Checkout
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # 获取完整提交历史（某些主题可能需要）
+        fetch-depth: 0
 
-    - name: Setup Node.js
+    - name: Setup Node
       uses: actions/setup-node@v4
       with:
-        node-version: '20'  # 推荐使用 LTS 版本
+        node-version: 20
         cache: 'npm'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install and Build
+      run: |
+        npm install
+        npm run build
 
-    - name: Build project
-      run: npm run build
-
-    - name: Deploy to GitHub Pages
+    - name: Deploy
       uses: peaceiris/actions-gh-pages@v4
       with:
+        # 使用自动生成的 token
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .vuepress/dist  # VuePress 默认构建目录
-        # 如果使用自定义配置，请根据实际情况调整路径
-        keep_files: false  # 部署前清除历史文件
+        # 显式指定发布分支
+        publish_branch: gh-pages
+        # 指定构建目录
+        publish_dir: .vuepress/dist
+        # 保留 CNAME 文件（如有自定义域名）
+        keep_files: true
