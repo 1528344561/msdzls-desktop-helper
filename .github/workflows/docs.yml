@@ -25,10 +25,14 @@ jobs:
 
       - name: Install Yarn 2
         run: npm install -g yarn@2
+        
 
       - name: Initialize Yarn and select version 2.x
         run: yarn set version berry
-
+        
+      - name: Install Yarn 2
+        run: yarn install
+      
       - name: Install theme-cli
         run: yarn global add @vuepress-reco/theme-cli@1.0.7
 
