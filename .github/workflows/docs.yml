@@ -30,12 +30,6 @@ jobs:
       - name: Initialize Yarn and select version 2.x
         run: yarn set version berry
         
-        
-      - name: Install Yarn 2
-        run: yarn install
-      
-
-        
 
       # run build script
       - name: Build VuePress site
