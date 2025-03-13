@@ -30,11 +30,13 @@ jobs:
       - name: Initialize Yarn and select version 2.x
         run: yarn set version berry
         
+      - name: Install theme-cli
+        run: yarn global add @vuepress-reco/theme-cli@1.0.7
+        
       - name: Install Yarn 2
         run: yarn install
       
-      - name: Install theme-cli
-        run: yarn global add @vuepress-reco/theme-cli@1.0.7
+
 
       - name: Initialize VuePress Theme Reco
         run: theme-cli init
