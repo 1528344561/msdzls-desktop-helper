@@ -20,13 +20,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          # choose node.js version to use
-          node-version: 22
-          # cache deps for yarn
-          cache: yarn
+          node-version: '22'
+          cache: 'yarn'
 
-      - name: Install deps
-        run: yarn install
+      - name: Install Yarn 2
+        run: npm install -g yarn@2
+
+      - name: Initialize Yarn and select version 2.x
+        run: yarn set version berry
+
+      - name: Install theme-cli
+        run: yarn global add @vuepress-reco/theme-cli@1.0.7
+
+      - name: Initialize VuePress Theme Reco
+        run: theme-cli init
+        
 
       # run build script
       - name: Build VuePress site
