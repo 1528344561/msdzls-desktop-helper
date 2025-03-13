@@ -1,0 +1,40 @@
+name: Deploy VuePress Reco Site
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 显式声明写入权限
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+
+    - name: Install and Build
+      run: |
+        npm install
+        npm run build
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        # 使用自动生成的 token
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        # 显式指定发布分支
+        publish_branch: gh-pages
+        # 指定构建目录
+        publish_dir: .vuepress/dist
+        # 保留 CNAME 文件（如有自定义域名）
+        keep_files: true
