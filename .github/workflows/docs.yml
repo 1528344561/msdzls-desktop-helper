@@ -17,23 +17,19 @@ jobs:
           # fetch all commits to get last updated time or other git log info
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup Node.js
+      - name: Setup Node.js and Yarn
         uses: actions/setup-node@v4
         with:
-          # choose node.js version to use
-          node-version: 22
-          # cache deps for pnpm
-          cache: pnpm
+          node-version: '22'  # 指定 Node.js 版本
+          cache: 'yarn'       # 启用 Yarn 缓存
+
 
       - name: Install deps
-        run: pnpm install --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       # run build script
       - name: Build VuePress site
-        run: pnpm docs:build
+        run: npm run build
 
       # please check out the docs of the workflow for more details
       # @see https://github.com/crazy-max/ghaction-github-pages
