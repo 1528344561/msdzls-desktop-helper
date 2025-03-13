@@ -26,7 +26,7 @@ jobs:
         
 
       - name: Initialize Yarn and select version 2.x
-        run: npm install
+        run: npm install vuepress@next vuepress-theme-reco@next --save-dev
         
 
       # run build script
