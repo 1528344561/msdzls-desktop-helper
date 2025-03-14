@@ -1,4 +1,8 @@
-
+---
+next:
+    text: 下载软件
+    link: introduce
+---
 
 ## Flash要求
 

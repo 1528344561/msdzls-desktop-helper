@@ -1,3 +1,9 @@
+---
+next:
+  text: 安装Flash
+  link: install_flash
+---
+
 ## 使用须知
 
 系统要求:

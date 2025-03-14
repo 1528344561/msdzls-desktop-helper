@@ -149,6 +149,14 @@ export default defineUserConfig({
         },
       ],
     },
+    algolia: {
+      appId: '27TAXUB7WU',
+      apiKey: 'f2dcf0e4adec00a2246224c2db10e442',
+      indexName: 'xxx',
+      inputSelector: '键入欲搜寻的关键词',
+      algoliaOptions: { 'facetFilters': ["lang:$LANG"] },
+      debug: false // Set debug to true if you want to inspect the dropdown
+    },
     // commentConfig: {
     //   type: 'valine',
     //   // options 与 1.x 的 valineConfig 配置一致
