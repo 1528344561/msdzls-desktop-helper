@@ -15,28 +15,6 @@ categories:
 3. 你可以打开 [午后南杂](http://recoluan.gitlab.io) 来查看效果。
 :::
 
-## Use
-
-**Build**
-
-```bash
-npm run build
-
-# or
-
-yarn build
-```
-
-**Server**
-
-```bash
-npm run dev
-
-# or
-
-yarn dev
-```
-
 ## Play Together
 
 ### 0.x
