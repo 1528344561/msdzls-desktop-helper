@@ -4,7 +4,7 @@ next:
   link: install_flash
 ---
 
-## 使用须知
+# 使用须知
 
 系统要求:
 Win10 及以上

@@ -88,15 +88,16 @@ export default defineUserConfig({
     },
     navbar: [
       { text: "首页", link: "/" , icon: 'IconHome'},
-      { text: "Categories", link: "/categories/reco/1.html" },
-      { text: "Tags", link: "/tags/tag1/1.html" },
-      {
-        text: "Docs",
-        children: [
-          { text: "vuepress-reco", link: "/docs/theme-reco/theme" },
-          { text: "vuepress-theme-reco", link: "/blogs/other/guide" },
-        ],
-      },
+      {text: "关于", link: "/docs/about/", icon: 'IconAbout'},
+      // { text: "Categories", link: "/categories/reco/1.html" },
+      // { text: "Tags", link: "/tags/tag1/1.html" },
+      // {
+      //   text: "Docs",
+      //   children: [
+      //     { text: "vuepress-reco", link: "/docs/theme-reco/theme" },
+      //     { text: "vuepress-theme-reco", link: "/blogs/other/guide" },
+      //   ],
+      // },
     ],
     bulletin: {
       body: [
