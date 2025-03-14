@@ -1,4 +1,4 @@
-## 友情链接
+# 友情链接
 
 秒杀时间汇总 https://miaosha.sumk.top
 
