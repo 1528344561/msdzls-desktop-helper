@@ -2,7 +2,7 @@
 home: true
 modules:
   - BannerBrand
-  - Blog
+  - Features
   - MdContent
   - Footer
 bannerBrand:
@@ -15,15 +15,25 @@ bannerBrand:
     - { text: 立即下载, link: '/docs/guide/download.html' }
     - { text: VIP版本, link: '/docs/vip/', type: 'plain' }
   socialLinks:
-    - { icon: 'LogoGithub', link: 'https://github.com/vuepress-reco/vuepress-theme-reco' }
+    - { icon: 'LogoGithub', link: 'https://github.com/1528344561/msdzls-desktop-helper/' }
+
+features:
+  # title: 自动切号刷图
+  # details: 全自动刷图
+  - { title: 自动切号刷图, details: 全自动刷图}
+  - { title: 自动公会任务, details: 全自动公会任务}
+  - { title: 自动日常签到, details: 全自动日常签到}
+
 blog:
   socialLinks:
-    - { icon: 'LogoGithub', link: 'https://github.com/recoluan' }
+    - { icon: 'LogoGithub', link: 'https://github.com/1528344561/msdzls-desktop-helper/' }
+
 isShowTitleInHome: true
 actionText: About
 actionLink: /views/other/about
 footnote: true
-footer: 美食桌面版
+footer: 
+  startYear: '2024'
+  record: '鲁ICP备2024098969号-1'
+  recordLink: 'https://beian.miit.gov.cn'
 ---
-
-Copyright &copy; 2025  <a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备2024098969号-1</a>
