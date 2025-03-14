@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as a}from"./app-DPIS4z_A.js";const o={};function r(c,n){return a(),e("div")}const s=t(o,[["render",r],["__file","1.html.vue"]]),_=JSON.parse('{"path":"/tags/tag4/1.html","title":"","lang":"en-US","frontmatter":{"layout":"Categories"},"headers":[],"git":{},"filePathRelative":null}');export{s as comp,_ as data};
