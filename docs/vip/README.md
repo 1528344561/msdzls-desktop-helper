@@ -1,4 +1,4 @@
-## 关于VIP版本
+# 关于VIP版本
 
 ~~下载链接:https://rainy.lanzoul.com/b00ef8ixch 密码:2333~~
 

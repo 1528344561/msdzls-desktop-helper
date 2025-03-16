@@ -13,10 +13,11 @@ export default defineUserConfig({
     ['link', { rel: 'icon', href: 'https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/2/4/0x24a10800.png' }]
   ],
   theme: recoTheme({
+    autoSetSeries: true,
     logo: "https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/2/4/0x24a10800.png",
     author: "Rainy",
     authorAvatar: "https://q1.qlogo.cn/g?b=qq&nk=2254399813&s=100",
-    docsRepo: "https://github.com/vuepress-reco/vuepress-theme-reco-next",
+    docsRepo: "https://github.com/1528344561/msdzls-desktop-helper",
     docsBranch: "main",
     docsDir: "example",
     lastUpdated: true,
@@ -69,10 +70,16 @@ export default defineUserConfig({
         {
           text:"初级使用",
           children:[{
-            text:"挂机",
+            text:"自动练级",
+            link:"auto_level_up"
+          },{
+            text:"一键挂机",
             link:"auto_play"
+          },{
+            text:"自定义战斗序列[荐]",
+            link:"auto_fight_list"
           },
-            {
+          {
             text:"公会任务",
             link:"guild_task"
           },{
@@ -123,6 +130,20 @@ export default defineUserConfig({
         {
           type: "text",
           content: `🎉🎉🎉 桌面版0.96.0版本已经发布，大家可以尽情尝鲜了，并且希望大家在 QQ 群踊跃反馈使用体验，我会在第一时间响应。`,
+          style: "font-size: 12px;",
+        },
+        {
+          type: "hr",
+        },
+        {
+          type: "title",
+          content: "更新计划",
+        },{
+          type: "text",
+          content: `
+          <ul>
+            <li>自动战斗序列,解放双手!</li>
+          </ul>`,
           style: "font-size: 12px;",
         },
         {
