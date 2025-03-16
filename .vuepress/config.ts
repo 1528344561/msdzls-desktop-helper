@@ -67,7 +67,7 @@ export default defineUserConfig({
           }]
         },
         {
-          text:"使用",
+          text:"初级使用",
           children:[{
             text:"挂机",
             link:"auto_play"
@@ -80,6 +80,19 @@ export default defineUserConfig({
             link:"wpe"
           }]
         },
+        {
+          text:"自动化",
+          children:[{
+            text:"全自动签到",
+            link:"auto_sign"
+          },{
+            text:"全自动公会任务",
+            link:"auto_guild_task"
+          },{
+            text:"全自动挂机刷图",
+            link:"auto_guaji"
+          }]
+        }
       ],
       "/docs/theme-reco/": [
         {
