@@ -83,6 +83,9 @@ export default defineUserConfig({
             text:"公会任务",
             link:"guild_task"
           },{
+            text:"挂机魔塔",
+            link:"auto_mota"
+          },{
             text:"WPE",
             link:"wpe"
           }]
