@@ -19,7 +19,7 @@ export default defineUserConfig({
     authorAvatar: "https://q1.qlogo.cn/g?b=qq&nk=2254399813&s=100",
     docsRepo: "https://github.com/1528344561/msdzls-desktop-helper",
     docsBranch: "main",
-    docsDir: "example",
+    docsDir: "",
     lastUpdated: true,
     lastUpdatedText: "",
     // series 为原 sidebar
