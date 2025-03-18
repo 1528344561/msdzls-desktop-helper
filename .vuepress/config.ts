@@ -143,12 +143,14 @@ export default defineUserConfig({
         },
         {
           type: "title",
-          content: "更新计划",
+          content: "更新计划 0.96.2",
         },{
           type: "text",
           content: `
           <ul>
             <li>自动战斗序列,解放双手!</li>
+            <li>WPE神装,星三神</li>
+            <li>1级VIP签到</li>
           </ul>`,
           style: "font-size: 12px;",
         },
