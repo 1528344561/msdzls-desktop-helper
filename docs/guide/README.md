@@ -15,8 +15,12 @@ next:
 
 [点击开始安装教程](pre_knowledge.html)
 
-#### 帮助教程中没有收录你遇到的问题吗?
+## 帮助教程中没有收录你遇到的问题吗?
 
-[点我反馈帮助教程的不足](https://gitcode.com/qq1528344561/msdzls-desktop/issues/create?type=markdown&title=%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E5%AE%8C%E5%96%84&template=.gitcode%252FISSUE_TEMPLATE%252FHELPER_REPORT.md)  你的每一次优质反馈都是在帮助我们变得更好,请不要提交无关内容.
+[点我反馈帮助教程的不足](https://gitcode.com/qq1528344561/msdzls-desktop/issues/create?type=markdown&title=%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E5%AE%8C%E5%96%84&template=.gitcode%252FISSUE_TEMPLATE%252FHELPER_REPORT.md)  
+
+没有你想查的问题,请反馈给我.
+
+重复地回答帮助文档中涵盖的问题令人难以接受
 
 ![image](./img/happy.png)
