@@ -4,7 +4,9 @@ import { viteBundler } from '@vuepress/bundler-vite'
 import { webpackBundler } from '@vuepress/bundler-webpack'
 
 export default defineUserConfig({
-  title: "美食桌面版帮助文档",
+  // title: "美食桌面版帮助文档",
+  title: "Rainy Blog",
+
   description: "Just playing around",
   bundler: viteBundler(),
   // bundler: webpackBundler(),
