@@ -2,8 +2,9 @@
 1. 百度搜索下载HMCL启动器或PCL启动器
 2. 打开后,创建一个角色(用离线模式创建)
 3. [下载整合包](https://www.curseforge.com/minecraft/modpacks/create-above-and-beyond/files/all?page=1&pageSize=1),然后拖进启动器 (直接Download,不要点那个黄色的Install)
-4. 安装[Java8](https://www.java.com/zh-CN/download/)
-5. 游戏Java版本选择刚才安装的Java,启动游戏,多人游戏添加服务器IP
+4. 安装[Java8](https://www.java.com/zh-CN/download/),游戏Java版本选择刚才安装的Java
+5. [修复多人游戏禁止BUG](https://www.bilibili.com/opus/809176150977806377),原文的1.16.5在这里叫 "Above and Beyond",同理也是"Above and Beyond.json"
+6. 启动游戏,多人游戏添加服务器IP
 
 <iframe src="https://ini.msdzls.sumk.top/get_ip" style="height:30px"></iframe>
 
