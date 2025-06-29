@@ -22,6 +22,12 @@ next:
 
 请去安装Flash,下载方式在桌面版主程序上方菜单栏(不要只下载那个FLash安装包却不安装)
 
+### 无法加载插件
+
+![image](./img/flash-cant-load_plugin.jpg)
+
+请去安装Flash,下载方式在桌面版主程序上方菜单栏(不要只下载那个FLash安装包却不安装)
+
 ### Flash更新弹窗
 
 <!-- ![image](https://img2024.cnblogs.com/blog/1633676/202502/1633676-20250212184848195-2093452498.png) -->
