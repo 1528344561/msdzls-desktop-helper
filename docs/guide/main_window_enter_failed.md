@@ -1,5 +1,21 @@
 # 打不开软件?
 
+## 提示网络连接错误/读取地图信息失败
+
+![alt text](./img/network_error.png)
+
+::: details 点我查看解决办法
+
+解决方法,按win + s,输入Internet
+
+![alt text](./img/network_error_2.png)
+
+然后打开TLS即可(若还不行就把1.3也打开).
+
+![alt text](./img/6d822b326d1f845ebae4e757b9314465.jpg)
+
+:::
+
 ## 软件乱码弹窗?
 
 [点我查看解决方法](./introduce.md#乱码)
