@@ -57,6 +57,9 @@ export default defineUserConfig({
             },{
               "text":"无法进入",
               "link":"game_enter_failed"
+            },{
+              "text":"游戏偶尔崩溃",
+              "link":"game_crash"
             }]
           },{
             "text":"软件配置",
