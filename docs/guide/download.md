@@ -5,3 +5,5 @@
 [点我下载游戏环境(Runtime)](https://rainyy.lanzoul.com/iTsTi1lzg0qf) 提取码2333
 
 [点我下载强卡器](https://rainyy.lanzoul.com/b00efpw8vc) 提取码2333
+
+无法打开下载页面?[请修改电脑DNS](https://www.bilibili.com/video/BV1bY411z7u1/)
