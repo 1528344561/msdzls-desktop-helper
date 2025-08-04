@@ -13,6 +13,7 @@ bannerBrand:
   buttons:
     - { text: 新手入门, link: '/docs/guide/' }
     - { text: 立即下载, link: '/docs/guide/download.html' }
+    - { text: 点券获取, link: '/docs/guide/fresh_man_make_point.html' }
     - { text: VIP版本, link: '/docs/vip/', type: 'plain' }
     - { text: 插件开发, link: '/docs/plugin/', type: 'plain' }
   socialLinks:

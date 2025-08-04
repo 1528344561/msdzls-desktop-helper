@@ -91,6 +91,9 @@ export default defineUserConfig({
             text:"挂机魔塔",
             link:"auto_mota"
           },{
+            text:"粉红保罗",
+            link:"pink_paul"
+          },{
             text:"温馨礼包",
             link:"warm_gift"
           },{
