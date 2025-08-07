@@ -12,7 +12,9 @@ next:
 
 [点我下载纯净Flash](https://rainyy.lanzoul.com/ixPci1ictx6f) 提取码2333
 
-## 未按要求安装Flash可能出现以下问题
+无法打开下载页面?[请修改电脑DNS](https://www.bilibili.com/video/BV1bY411z7u1/)
+
+## 未按要求安装Flash可能出现以下问题(必看)
 
 ### 窗口蓝绿色屏
 
