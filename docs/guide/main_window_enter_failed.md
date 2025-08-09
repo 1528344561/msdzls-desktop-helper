@@ -16,6 +16,11 @@
 
 :::
 
+win7系统记得开启 SSL2.0
+
+![alt text](./img/network_error_win7.png)
+
+
 ## 软件乱码弹窗?
 
 [点我查看解决方法](./introduce.md#乱码)
