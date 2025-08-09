@@ -1,5 +1,9 @@
 # WPE
 
+## WPE神装使用方法(其余类似)
+
+[b站视频教程](https://www.bilibili.com/video/BV1pJtbzgEVp/)
+
 ## 有何作用?
 
 1. 可以开启全六级公会设施,可用于买6级商城内的物品
