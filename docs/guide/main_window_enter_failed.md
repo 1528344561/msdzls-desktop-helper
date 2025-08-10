@@ -14,12 +14,11 @@
 
 ![alt text](./img/6d822b326d1f845ebae4e757b9314465.jpg)
 
-:::
-
 win7系统记得开启 SSL2.0
 
 ![alt text](./img/network_error_win7.png)
 
+:::
 
 ## 软件乱码弹窗?
 
