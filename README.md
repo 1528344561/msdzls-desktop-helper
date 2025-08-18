@@ -14,9 +14,11 @@ bannerBrand:
     - { text: 新手入门, link: '/docs/guide/' }
     - { text: 立即下载, link: '/docs/guide/download.html' }
     - { text: QQ空间, link: '/docs/guide/qqzone.html'}
+    - { text: 美食知识, link: 'https://mstrack.cn/Track-Web/notes/message/', type: 'plain' }
     - { text: VIP版本, link: '/docs/vip/' , type: 'plain'}
     - { text: 点券获取, link: '/docs/guide/fresh_man_make_point.html', type: 'plain'}
     - { text: 插件开发, link: '/docs/plugin/', type: 'plain' }
+
   socialLinks:
     - { icon: 'LogoGithub', link: 'https://github.com/1528344561/msdzls-desktop-helper/' }
 
