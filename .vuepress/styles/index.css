@@ -39,3 +39,10 @@
 #app > div > div > main > section.banner-brand__wrapper > div > h1.animation-complete {
   border-right: none;
 }
+
+/* #app > div.theme-container.series--no > div > main > section.banner-brand__wrapper {
+  overflow: hidden;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/loadingbg.jpg") center/cover no-repeat;
+} */
