@@ -4,7 +4,7 @@
 
 ## 方式1.在线反馈（建议）
 
-[反馈页](https://gitcode.com/qq1528344561/msdzls-desktop/issues)
+[反馈页](https://gitcode.com/rainysnow/msdzls-desktop/issues)
 
 进入该页面点击➕号，创建新的issue
 

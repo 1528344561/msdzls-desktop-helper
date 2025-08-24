@@ -36,7 +36,7 @@ next:
 
 ## 帮助教程中没有收录你遇到的问题吗?
 
-[点我反馈帮助教程的不足](https://gitcode.com/qq1528344561/msdzls-desktop/issues/create?type=markdown&title=%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E5%AE%8C%E5%96%84&template=.gitcode%252FISSUE_TEMPLATE%252FHELPER_REPORT.md)  
+[点我反馈帮助教程的不足](https://gitcode.com/rainysnow/msdzls-desktop/issues/create?type=markdown&title=%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E5%AE%8C%E5%96%84&template=.gitcode%252FISSUE_TEMPLATE%252FHELPER_REPORT.md)  
 
 没有你想查的问题,请反馈给我.
 
