@@ -51,7 +51,9 @@
 
 #### 方式3
 
-三连视频 https://www.bilibili.com/video/BV1rC4y1R7GW 凭截图可获得1张周卡
+三连视频 https://www.bilibili.com/video/BV1oQbszREzM 凭截图可获得1张周卡
+
+<!-- 三连视频 https://www.bilibili.com/video/BV1rC4y1R7GW 凭截图可获得1张周卡 -->
 
 ### VIP版登录方式详解
 
