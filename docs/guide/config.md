@@ -4,7 +4,7 @@
 
 ## 秒杀时间配置
 
-详见 [秒杀时间汇总](https://miaosha.sumk.top) 仅供参考
+详见 [秒杀时间汇总](https://miaosha.rainysnow.com) 仅供参考
 
 ## 游戏无声音
 

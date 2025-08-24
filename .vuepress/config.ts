@@ -188,7 +188,7 @@ export default defineUserConfig({
           type: "text",
           content: `
           <ul>
-            <li><a href="https://report.sumk.top">Issues[问题反馈]<a/></li>
+            <li><a href="https://report.rainysnow.com">Issues[问题反馈]<a/></li>
           </ul>`,
           style: "font-size: 12px;",
         },
