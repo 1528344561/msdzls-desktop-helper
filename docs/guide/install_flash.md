@@ -10,6 +10,8 @@ next:
 
 **【重要】使用Flash中心可能导致不必要的弹窗或更新提示.或无法正确获取到角色等级和VIP信息,强烈建议卸载Flash中心,安装纯净Flash安装包(下文提供)**
 
+**是卸载而不是删除 是卸载而不是删除 是卸载而不是删除 不要直接删文件夹!!!!**
+
 [点我下载纯净Flash](https://rainyy.lanzoul.com/ixPci1ictx6f) 提取码2333
 
 无法打开下载页面?[请修改电脑DNS](https://www.bilibili.com/video/BV1bY411z7u1/)
