@@ -207,24 +207,24 @@ export default defineUserConfig({
       ],
     },
     // algolia: {
-    //   appId: '27TAXUB7WU',
-    //   apiKey: 'f2dcf0e4adec00a2246224c2db10e442',
-    //   indexName: 'xxx',
+    //   appId: 'PJ9U6DIZSJ',
+    //   apiKey: '75f85ee4ec6d355a58cd133fa1f12240',
+    //   indexName: 'Document Website',
     //   inputSelector: '键入欲搜寻的关键词',
     //   algoliaOptions: { 'facetFilters': ["lang:$LANG"] },
-    //   debug: false // Set debug to true if you want to inspect the dropdown
+    //   debug: true // Set debug to true if you want to inspect the dropdown
     // },
     // commentConfig: {
     //   type: 'valine',
     //   // options 与 1.x 的 valineConfig 配置一致
     //   options: {
-    //     // appId: 'xxx',
-    //     // appKey: 'xxx',
-    //     // placeholder: '填写邮箱可以收到回复提醒哦！',
-    //     // verify: true, // 验证码服务
-    //     // notify: true,
-    //     // recordIP: true,
-    //     // hideComments: true // 隐藏评论
+    //     appId: 'CeGWOm7NSXRtlIyQKqYJZvv3-gzGzoHsz',
+    //     appKey: 'HOoaJWYZWat6lVQ8KgFJCI5O',
+    //     placeholder: 'cs.lzh@qq.com',
+    //     verify: true, // 验证码服务
+    //     notify: true,
+    //     recordIP: true,
+    //     hideComments: false // 隐藏评论
     //   },
     // },
   }),
