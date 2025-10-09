@@ -25,9 +25,10 @@ bannerBrand:
 features:
   # title: 自动切号刷图
   # details: 全自动刷图
-  - { title: 自动切号刷图, details: 全自动刷图}
+  - { title: 自动上号刷图, details: 全自动上号切号刷图 告别手动}
   - { title: 自动公会任务, details: 全自动公会任务}
   - { title: 自动日常签到, details: 全自动日常签到}
+  - { title: 自动战斗序列, details: 全自动执行预先设定的战斗序列 包括一键悬赏!}
 
 blog:
   socialLinks:
