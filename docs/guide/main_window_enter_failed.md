@@ -28,7 +28,9 @@
 
 **【强烈建议配置此项】一劳永逸!!!**
 
-[点我查看操作视频](https://www.bilibili.com/video/BV1vz4y1U7Pm)
+[添加软件到信任区 点我查看操作视频](https://www.bilibili.com/video/BV1vz4y1U7Pm)
+
+[不想那么麻烦,想直接永久关闭杀毒软件? 点我查看操作视频](https://www.bilibili.com/video/BV15v4y1X7kw)
 
 可以在Windows 安全中心 以及你自己的杀毒软件中,**添加排除项**,将软件所在文件夹(也可以添加一整个盘符,更省心)添加进去即可.具体方法请自行百度或问群友.
 
