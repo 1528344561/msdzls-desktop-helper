@@ -11,9 +11,12 @@
 
 [点我下载强卡器](https://rainyy.lanzoul.com/b00efpw8vc) 提取码2333
 
-## 关闭系统自带杀毒软件 提示找不到指定dll文件的命令等等
+## 关闭系统自带杀毒软件! 打开提示找不到指定dll文件的命令等等的解决方案
 
-[点我查看操作视频](https://www.bilibili.com/video/BV1vz4y1U7Pm)
+[添加软件到信任区 点我查看操作视频](https://www.bilibili.com/video/BV1vz4y1U7Pm)
+
+[不想那么麻烦,想直接永久关闭杀毒软件? 点我查看操作视频](https://www.bilibili.com/video/BV15v4y1X7kw)
+
 
 ## 常用链接
 

@@ -39,7 +39,7 @@ actionText: About
 actionLink: /views/other/about
 footnote: true
 footer: 
-  startYear: '2024'
+  startYear: '2023'
   # record: '鲁ICP备2024098969号-1'
   recordLink: 'https://beian.miit.gov.cn'
 ---
