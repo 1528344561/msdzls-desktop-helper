@@ -4,6 +4,14 @@
 
 [b站视频教程](https://www.bilibili.com/video/BV1pJtbzgEVp/)
 
+## 自动过1服验证功能说明
+
+第一次使用需要先清理缓存
+
+::: details 点我查看功能注意事项
+![image](./img/verify_notice.jpg)
+:::
+
 ## 有何作用?
 
 1. 可以开启全六级公会设施,可用于买6级商城内的物品
