@@ -5,7 +5,7 @@
 
 [点我下载桌面版](https://rainy.lanzoul.com/b048nro4b) 提取码2333 (需先确定已关闭所有杀毒软件)
 
-[点我下载纯净Flash](https://rainyy.lanzoul.com/ixPci1ictx6f) 提取码2333 (**不能使用Flash中心,必须先卸载Flash中心**)
+[点我下载纯净Flash](https://rainyy.lanzoul.com/ixPci1ictx6f) 提取码2333 (**不能使用Flash中心,必须先卸载Flash中心. 务必确保自己电脑里没有其他Flash后再安装这个!!!**)
 
 [点我下载游戏环境(Runtime)](https://rainyy.lanzoul.com/iTsTi1lzg0qf) 提取码2333  (没提示缺少环境就不用下载)
 
