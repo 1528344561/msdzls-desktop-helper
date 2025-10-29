@@ -17,6 +17,13 @@
 
 [想直接永久关闭杀毒软件? 点我查看操作视频](https://www.bilibili.com/video/BV15v4y1X7kw)
 
+## 提示： Windows 无法访问指定设备、路径或文件。你可能摸鱼适当的权限访问该项目。
+
+![alt text](./img/windows_access_error.png)
+
+[解决办法](https://www.bilibili.com/video/BV1Ki4y157cV)
+
+在这个信息化的时代, 希望各位能学会用百度。根据提示信息到百度随便一搜都是解决方案。
 
 ## 常用链接
 
