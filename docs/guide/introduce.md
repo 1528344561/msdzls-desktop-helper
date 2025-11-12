@@ -20,9 +20,9 @@
 
 **无法打开下载页面?[请修改电脑DNS](https://www.bilibili.com/video/BV1bY411z7u1/)**
 
-[点我下载桌面版](https://rainy.lanzoul.com/b048nro4b) 提取码2333
+[点我下载桌面版](https://rainy.lanzoui.com/b048nro4b) 提取码2333
 
-[点我下载纯净Flash](https://rainyy.lanzoul.com/ixPci1ictx6f) 提取码2333
+[点我下载纯净Flash](https://rainy.lanzoui.com/ixPci1ictx6f) 提取码2333
 
 ### 程序目录结构
 
@@ -59,7 +59,7 @@
 
 :::details 检测不到游戏环境解决办法
 
-[点我下载游戏环境(Runtime)](https://rainyy.lanzoul.com/iTsTi1lzg0qf) 提取码2333
+[点我下载游戏环境(Runtime)](https://rainy.lanzoui.com/iTsTi1lzg0qf) 提取码2333
 
 若你游戏窗口文件夹 **(并非桌面版根目录,而是桌面版根目录下的"游戏窗口"子文件夹)** 内没有Runtime文件夹,请:
 
