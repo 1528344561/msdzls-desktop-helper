@@ -12,7 +12,7 @@ next:
 
 **是卸载而不是删除 是卸载而不是删除 是卸载而不是删除 不要直接删文件夹!!!!**
 
-[点我下载纯净Flash](https://rainy.lanzoui.com/ixPci1ictx6f) 提取码2333
+[点我下载纯净Flash](https://rainy.lanzoul.com/ixPci1ictx6f) 提取码2333
 
 无法打开下载页面?[请修改电脑DNS](https://www.bilibili.com/video/BV1bY411z7u1/)
 
@@ -38,5 +38,5 @@ next:
 
 ![image](./img/flash-update.png)
 
-> 孩子,卸载Flash中心吧,安装纯净Flash(可在前文或群文件内下载),https://rainy.lanzoui.com/ixPci1ictx6f 密码2333
+> 孩子,卸载Flash中心吧,安装纯净Flash(可在前文或群文件内下载),https://rainy.lanzoul.com/ixPci1ictx6f 密码2333
 

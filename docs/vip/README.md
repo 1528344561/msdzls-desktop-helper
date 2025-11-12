@@ -1,6 +1,6 @@
 # 关于VIP版本
 
-~~下载链接:https://rainy.lanzoui.com/b00ef8ixch 密码:2333~~
+~~下载链接:https://rainy.lanzoul.com/b00ef8ixch 密码:2333~~
 
 下载链接:https://vip.rainysnow.com 密码:2333
 
