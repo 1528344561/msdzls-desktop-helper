@@ -24,7 +24,25 @@ next:
 
 本软件无需下载360大厅,Flash中心,免除任何广告烦扰.
 
-~~确保你是Win10以上的系统~~(支持win7,但是要在个性化里面将主题修改为Basic,不能是Aero)
+~~确保你是Win10以上的系统~~(支持win7,但是要在桌面右键,个性化里面将主题修改为Basic,不能是Aero)
+
+::: details Win7系统请先点我
+
+按win + s,输入Internet选项
+
+![alt text](./img/network_error_2.png)
+
+<!-- 然后打开所有SSL和TLS即可(若还不行就把1.3也打开). -->
+
+<!-- ![alt text](./img/6d822b326d1f845ebae4e757b9314465.jpg) -->
+
+<!-- **win7系统记得开启 SSL2.0** -->
+
+然后打开所有SSL和TLS.
+
+![alt text](./img/network_error_win7.png)
+
+:::
 
 **遇到文档查找不到或无法解决的问题,请录完整视频,不要只问一句为什么用不了**
 
