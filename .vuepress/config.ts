@@ -143,7 +143,7 @@ export default defineUserConfig({
       body: [
         {
           type: "text",
-          content: `🎉🎉🎉 桌面版0.96.0版本已经发布，大家可以尽情尝鲜了，并且希望大家在 QQ 群踊跃反馈使用体验，我会在第一时间响应。`,
+          content: `🎉🎉🎉 桌面版0.96.7版本已经发布，大家可以尽情尝鲜了，并且希望大家在 QQ 群踊跃反馈使用体验，我会在第一时间响应。`,
           style: "font-size: 12px;",
         },
         {
@@ -151,7 +151,7 @@ export default defineUserConfig({
         },
         {
           type: "title",
-          content: "更新计划 0.96.2",
+          content: "更新计划 0.96.7",
         },{
           type: "text",
           content: `
@@ -214,19 +214,15 @@ export default defineUserConfig({
     //   algoliaOptions: { 'facetFilters': ["lang:$LANG"] },
     //   debug: true // Set debug to true if you want to inspect the dropdown
     // },
-    // commentConfig: {
-    //   type: 'valine',
-    //   // options 与 1.x 的 valineConfig 配置一致
-    //   options: {
-    //     appId: 'CeGWOm7NSXRtlIyQKqYJZvv3-gzGzoHsz',
-    //     appKey: 'HOoaJWYZWat6lVQ8KgFJCI5O',
-    //     placeholder: 'cs.lzh@qq.com',
-    //     verify: true, // 验证码服务
-    //     notify: true,
-    //     recordIP: true,
-    //     hideComments: false // 隐藏评论
-    //   },
-    // },
+    commentConfig: {
+      type: 'valine',
+      // options 与 1.x 的 valineConfig 配置一致
+      options: {
+        el: '#valine-vuepress-comment',
+        appId: 'CeGWOm7NSXRtlIyQKqYJZvv3-gzGzoHsz',
+        appKey: 'HOoaJWYZWat6lVQ8KgFJCI5O'
+      },
+    },
   }),
   // debug: true,
 });
