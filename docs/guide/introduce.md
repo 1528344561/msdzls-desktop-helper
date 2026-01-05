@@ -24,6 +24,8 @@
 
 [点我下载纯净Flash](https://rainy.lanzoul.com/ixPci1ictx6f) 提取码2333
 
+[推荐的解压软件](https://www.bandisoft.com/bandizip/dl.php?web) (没有好用的解压软件的可以下载这个,比较推荐,但非必选)
+
 ### 程序目录结构
 
 ```
@@ -41,39 +43,6 @@
     └─Runtime
 
 ```
-
-<!-- ![image](https://img2024.cnblogs.com/blog/1633676/202410/1633676-20241001175750707-1980050765.png) -->
-
-
-:::details 打开桌面版后发现无法上网
-
-没有考虑到部分地区ping不通114.114.114.114,在检测不到游戏环境时，会自动修改DNS,给部分用户造成了无法上网的困扰
-
-你可以直接下载带 Runtime 的桌面版,这样就不会自动下载,从而不会修改你电脑的DNS
-
-后续版本将解决该问题
-
-如果提示访问版本服务器/保存地图信息失败,请看[此页面](./main_window_enter_failed.md)
-
-:::
-
-:::details 检测不到游戏环境解决办法
-
-[点我下载游戏环境(Runtime)](https://rainy.lanzoul.com/iTsTi1lzg0qf) 提取码2333
-
-若你游戏窗口文件夹 **(并非桌面版根目录,而是桌面版根目录下的"游戏窗口"子文件夹)** 内没有Runtime文件夹,请:
-
-1. 自己在游戏窗口文件夹内新建Runtime文件夹
-
-2. 下载Runtime压缩包,[链接](https://wwp.lanzoul.com/iTsTi1lzg0qf),提取码2333,将压缩包内的文件解压到刚才创建的Runtime文件夹(注意解压时不要再弄一个新的Runtime文件夹)
-
-3. 重启软件
-
-**如果你实在不会操作,就去 https://msdzls.rainysnow.com 里下载带Runtime的桌面版.只是不保证最新**
-
-![image](./img/dir.png)
-
-:::
 
 ## 登录游戏
 
