@@ -5,9 +5,11 @@
 
 [点我下载桌面版](https://rainy.lanzoul.com/b048nro4b) 提取码2333 (需先确定已关闭所有杀毒软件,**往下看完关于关闭杀毒软件的内容!!!往下看完关于关闭杀毒软件的内容!!!往下看完关于关闭杀毒软件的内容!!!往下看完关于关闭杀毒软件的内容!!!往下看完关于关闭杀毒软件的内容!!!**)
 
+[推荐的解压软件](https://www.bandisoft.com/bandizip/dl.php?web) (没有好用的解压软件的可以下载这个,比较推荐,但非必选)
+
 [点我下载纯净Flash](https://rainy.lanzoul.com/ixPci1ictx6f) 提取码2333 (**不能使用Flash中心,必须先卸载Flash中心. 务必确保自己电脑里没有其他Flash后再安装这个!!!**)
 
-[点我下载游戏环境(Runtime)](https://rainy.lanzoul.com/iTsTi1lzg0qf) 提取码2333  (没提示缺少环境就不用下载)
+(非必选)[点我下载游戏环境(Runtime)](https://rainy.lanzoul.com/iTsTi1lzg0qf) 提取码2333  (没提示缺少环境就不用下载)
 
 [点我下载强卡器](https://rainy.lanzoul.com/b00efpw8vc) 提取码2333
 
