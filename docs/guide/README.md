@@ -5,6 +5,8 @@ next:
 ---
 # 开始
 
+[AI在线智能问答解答问题[荐]](https://ai.rainysnow.com)
+
 ## 软件主要功能介绍与对比
 
 |功能| 桌面版 | X叶 | X助手 |
@@ -55,6 +57,8 @@ next:
 [点我打开视频教程](https://v.douyin.com/pZo-Mai3uJU/)
 
 [点击开始安装教程](pre_knowledge.html)
+
+[AI在线智能问答解答问题[荐]](https://ai.rainysnow.com)
 
 ## 帮助教程中没有收录你遇到的问题吗?
 
