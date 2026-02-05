@@ -81,7 +81,7 @@ export default defineUserConfig({
             text:"一键挂机",
             link:"auto_play"
           },{
-            text:"自定义战斗序列[荐]",
+            text:"★自定义战斗序列[荐]",
             link:"auto_fight_list"
           },
           {
@@ -99,6 +99,13 @@ export default defineUserConfig({
           },{
             text:"WPE",
             link:"wpe"
+          }]
+        },
+        {
+          text:"高级功能",
+          children:[{
+            text:"高级功能[荐]",
+            link:"advanced"
           }]
         },
         {
