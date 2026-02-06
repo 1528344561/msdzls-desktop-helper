@@ -94,7 +94,7 @@
 
 ### 批量配置自定义战斗
 
-[下载桌面版配置工具](https://rainyy.lanzoul.com/iCtLx3hxnsfa) (访问密码2333) 以后,
+[下载桌面版配置工具](https://rainyy.lanzoul.com/b00eggc9va) (访问密码2333) 以后,
 
 打开, 选择软件根目录,
 
