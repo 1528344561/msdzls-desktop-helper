@@ -18,6 +18,10 @@
 [点我查看旧版本清理列表,方便迁移](https://ini-ms.rainysnow.com/old_clean_backpag.ini)
 
 
+## 免WPE获得爆率徽章
+
+只需要正常勾选爆率徽章, 不开WPE即可.
+
 ::: tip 
 
 更多功能不断更新中...
