@@ -26,7 +26,11 @@ http://meishi.wechat.123u.com/meishi/index?openid=
 
 1. 自动绑定温馨礼包
 
-敬请期待
+~~敬请期待~~
+
+[自动绑定与自动领取详情点我](./auto_fight_list.md#自定义操作序列)
+
+[批量自动绑定,使用批量自定义战斗](./auto_fight_list.md#批量自动化-自定义战斗)
 
 2. 自动开温馨礼包
 
