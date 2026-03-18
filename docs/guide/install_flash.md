@@ -16,7 +16,12 @@ next:
 
 无法打开下载页面?[请修改电脑DNS](https://www.bilibili.com/video/BV1bY411z7u1/)
 
+
 ## 未按要求安装Flash可能出现以下问题(必看)
+
+### 若你安装以后仍然出现下列问题
+
+建议尝试: [下载Flash一剑全清工具](https://rainyy.lanzoul.com/ia1EO3kw1wla), 清理完毕后, 重新安装Flash再启动游戏, 一般就可以正常进入了.
 
 ### 窗口蓝绿色屏
 
