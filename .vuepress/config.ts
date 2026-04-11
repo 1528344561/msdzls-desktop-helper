@@ -15,6 +15,7 @@ export default defineUserConfig({
     ['link', { rel: 'icon', href: 'https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/2/4/0x24a10800.png' }]
   ],
   theme: recoTheme({
+    colorMode: "dark",
     autoSetSeries: true,
     logo: "https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/2/4/0x24a10800.png",
     author: "Rainy",
