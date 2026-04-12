@@ -36,7 +36,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, toRefs } from 'vue'
+import { computed, ref, toRefs, watch } from 'vue'
+import { useRoute } from 'vuepress/client'
 import { convertToPinyin, removeEmptyString } from '@vuepress-reco/shared'
 import { useComment } from '@vuepress-reco/vuepress-plugin-comments/composables'
 import { IconUser, IconCalendar, IconFolder, IconTag, IconEye } from '@components/icons/index.js'
@@ -78,6 +79,7 @@ const { pageData, hideViews } = toRefs(props)
 const themeLocal = useThemeLocaleData()
 const { solution, options } = useComment()
 const umamiMetrics = ref<UmamiMetrics | null>(null)
+const route = useRoute()
 
 const author = computed(
   () => pageData?.value?.frontmatter?.author || themeLocal.value.author || ''
@@ -91,7 +93,7 @@ const metricsText = computed(() => {
   const pageviews = umamiMetrics.value.pageviews.toLocaleString()
   const activeVisitors = umamiMetrics.value.active_visitors.toLocaleString()
 
-  return `总访问 ${pageviews} · 当前在线 ${activeVisitors}`
+  return `本页访问 ${pageviews} · 当前在线 ${activeVisitors}`
 })
 
 const path = computed(
@@ -141,16 +143,21 @@ const showPageInfo = computed(
     !!(tags.value && tags.value.length > 0)
 )
 
-onMounted(async () => {
+const fetchMetrics = async () => {
   try {
-    const response = await fetch(UMAMI_METRICS_URL, {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-      },
-    })
+    const normalizedPath = route.path || '/'
+    const response = await fetch(
+      `${UMAMI_METRICS_URL}?path=${encodeURIComponent(normalizedPath)}`,
+      {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+        },
+      }
+    )
 
     if (!response.ok) {
+      umamiMetrics.value = null
       return
     }
 
@@ -161,11 +168,22 @@ onMounted(async () => {
       typeof data?.active_visitors === 'number'
     ) {
       umamiMetrics.value = data
+      return
     }
+
+    umamiMetrics.value = null
   } catch {
     umamiMetrics.value = null
   }
-})
+}
+
+watch(
+  () => route.path,
+  () => {
+    void fetchMetrics()
+  },
+  { immediate: true }
+)
 
 const showValineViews = computed(() => {
   return (
