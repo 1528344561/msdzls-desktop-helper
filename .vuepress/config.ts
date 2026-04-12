@@ -13,6 +13,11 @@ export default defineUserConfig({
   
   head: [
     ['link', { rel: 'icon', href: 'https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/2/4/0x24a10800.png' }]
+    ,['script', {
+      defer: '',
+      src: 'https://cloud.umami.is/script.js',
+      'data-website-id': '4a8a1af4-c021-45e3-8a33-8b798e1d362f'
+    }]
   ],
   theme: recoTheme({
     colorMode: "dark",
@@ -23,7 +28,7 @@ export default defineUserConfig({
     docsRepo: "https://github.com/1528344561/msdzls-desktop-helper",
     docsBranch: "main",
     docsDir: "",
-    lastUpdated: true,
+    lastUpdated: false,
     lastUpdatedText: "",
     // series 为原 sidebar
     series: {
