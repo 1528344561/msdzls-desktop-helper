@@ -8,6 +8,8 @@
       :text="`${themeLocal.lastUpdatedText || 'Last Updated'} ${lastUpdated}`"
     />
 
+    <Xicons v-if="metricsText" :icon="IconEye" :text="metricsText" />
+
     <Xicons v-if="!!date" :icon="IconCalendar" :text="date" />
 
     <Xicons v-if="categories.length > 0" :icon="IconFolder">
@@ -34,13 +36,20 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
+import { computed, onMounted, ref, toRefs } from 'vue'
 import { convertToPinyin, removeEmptyString } from '@vuepress-reco/shared'
 import { useComment } from '@vuepress-reco/vuepress-plugin-comments/composables'
 import { IconUser, IconCalendar, IconFolder, IconTag, IconEye } from '@components/icons/index.js'
 
 import { formatISODate } from '@utils/other'
 import { useThemeLocaleData } from '@composables/index.js'
+
+type UmamiMetrics = {
+  pageviews: number
+  active_visitors: number
+}
+
+const UMAMI_METRICS_URL = 'https://helper.rainysnow.com/metrics'
 
 function formatCategory(category: string) {
   return convertToPinyin(removeEmptyString(category))
@@ -68,10 +77,22 @@ const { pageData, hideViews } = toRefs(props)
 
 const themeLocal = useThemeLocaleData()
 const { solution, options } = useComment()
+const umamiMetrics = ref<UmamiMetrics | null>(null)
 
 const author = computed(
   () => pageData?.value?.frontmatter?.author || themeLocal.value.author || ''
 )
+
+const metricsText = computed(() => {
+  if (!umamiMetrics.value) {
+    return ''
+  }
+
+  const pageviews = umamiMetrics.value.pageviews.toLocaleString()
+  const activeVisitors = umamiMetrics.value.active_visitors.toLocaleString()
+
+  return `总访问 ${pageviews} · 当前在线 ${activeVisitors}`
+})
 
 const path = computed(
   () => pageData?.value?.path || '/'
@@ -113,11 +134,38 @@ const tags = computed(() => {
 const showPageInfo = computed(
   () =>
     !!author.value ||
+    !!metricsText.value ||
     !!lastUpdated.value ||
     !!date.value ||
     !!(categories.value && categories.value.length > 0) ||
     !!(tags.value && tags.value.length > 0)
 )
+
+onMounted(async () => {
+  try {
+    const response = await fetch(UMAMI_METRICS_URL, {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+      },
+    })
+
+    if (!response.ok) {
+      return
+    }
+
+    const data = await response.json() as UmamiMetrics
+
+    if (
+      typeof data?.pageviews === 'number' &&
+      typeof data?.active_visitors === 'number'
+    ) {
+      umamiMetrics.value = data
+    }
+  } catch {
+    umamiMetrics.value = null
+  }
+})
 
 const showValineViews = computed(() => {
   return (
