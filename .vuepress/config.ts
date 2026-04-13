@@ -7,7 +7,7 @@ export default defineUserConfig({
   title: "美食桌面版帮助文档",
   // title: "Rainy Blog",
 
-  description: "Just playing around",
+  description: "美食大战老鼠桌面版官网帮助文档",
   bundler: viteBundler(),
   // bundler: webpackBundler(),
   
