@@ -68,7 +68,7 @@ export default defineUserConfig({
               "link":"game_crash"
             }]
           },{
-            "text":"软件配置",
+            "text":"软件配置与迁移",
             "link":"config"
           },{
             "text":"常用网站",
