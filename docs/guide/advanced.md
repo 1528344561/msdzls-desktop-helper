@@ -10,7 +10,7 @@
 
 ## 功能视频教程
 
-[一键清理 / 使用物品](https://www.bilibili.com/video/BV1oQbszREzM)
+[一键清理 / 使用物品](https://www.bilibili.com/video/BV1oQbszREzM?p=2)
 
 详细配置说明见 ↓
 
