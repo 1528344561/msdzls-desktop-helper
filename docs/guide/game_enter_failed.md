@@ -28,6 +28,12 @@
 
 ## 窗口绑定失败,游戏成功进入了但是过一会就刷新了
 
-1. 若是win7, 请在桌面, 右键, 个性化, 主题选择 basic, 而不能是 Aero 主题
+ 若是win7, 请在桌面, 右键, 个性化, 主题选择 basic, 而不能是 Aero 主题
 
 重装系统(不要选择win server)
+
+## 弹窗报错缺少 "libclass.dll"
+
+![image](./img/libclass问题.png)
+
+目前未知问题, 只能操作系统解决 (若不是 `libclass.dll` , 请不要参考本内容)
