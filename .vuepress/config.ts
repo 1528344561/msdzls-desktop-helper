@@ -17,7 +17,9 @@ export default defineUserConfig({
       defer: '',
       src: 'https://cloud.umami.is/script.js',
       'data-website-id': '4a8a1af4-c021-45e3-8a33-8b798e1d362f'
-    }]
+    }],
+    ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@alpha', rel: 'stylesheet' }],
+    ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@alpha' }]
   ],
   theme: recoTheme({
     colorMode: "dark",
@@ -219,14 +221,6 @@ export default defineUserConfig({
         },
       ],
     },
-    // algolia: {
-    //   appId: 'PJ9U6DIZSJ',
-    //   apiKey: '75f85ee4ec6d355a58cd133fa1f12240',
-    //   indexName: 'Document Website',
-    //   inputSelector: '键入欲搜寻的关键词',
-    //   algoliaOptions: { 'facetFilters': ["lang:$LANG"] },
-    //   debug: true // Set debug to true if you want to inspect the dropdown
-    // },
     // commentConfig: {
     //   type: 'valine',
     //   // options 与 1.x 的 valineConfig 配置一致
