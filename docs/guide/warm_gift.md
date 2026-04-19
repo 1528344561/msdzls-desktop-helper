@@ -28,9 +28,9 @@ http://meishi.wechat.123u.com/meishi/index?openid=
 
 ~~敬请期待~~
 
-[自动绑定与自动领取详情点我](./auto_fight_list.md#自定义操作序列)
+[自动绑定与自动领取详情点我](./auto_fight_list.md#bind-warm-gift)
 
-[批量自动绑定,使用批量自定义战斗](./auto_fight_list.md#批量自动化-自定义战斗)
+[批量自动绑定,使用批量自定义战斗](./auto_fight_list.md#批量自动化-自定义战斗) 或者在新版本桌面版的批量窗口中的 "任务事项" 选项卡
 
 2. 自动开温馨礼包
 
