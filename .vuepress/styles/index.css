@@ -86,3 +86,15 @@
   font-size: 12px;
   line-height: 20px;
 }
+
+html {
+  scroll-padding-top: 96px;
+}
+
+.theme-reco-md-content :is(h1, h2, h3, h4, h5, h6) {
+  scroll-margin-top: 96px;
+}
+
+.theme-reco-md-content :is(h1, h2, h3, h4, h5, h6) .header-anchor {
+  scroll-margin-top: 96px;
+}
