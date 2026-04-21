@@ -11,6 +11,14 @@
 
 [开发版(可能不稳定, 新手勿选)](https://vip.rainysnow.com/)
 
+下载遇到问题?
+
+<img src="./img/QA_下载.png"></img>
+
+右键展开点保留
+
+<img src="./img/QA_保留.png" height=200></img>
+
 <!-- [推荐的解压软件](https://www.bandisoft.com/bandizip/dl.php?web) (没有好用的解压软件的可以下载这个,比较推荐,但非必选) -->
 
 [点我下载纯净Flash](https://rainy.lanzoul.com/ixPci1ictx6f) 提取码2333 (**不能使用Flash中心,必须先卸载Flash中心. 务必确保自己电脑里没有其他Flash后再安装这个!!!**)
