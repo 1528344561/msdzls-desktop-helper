@@ -158,21 +158,23 @@ export default defineUserConfig({
       body: [
         {
           type: "text",
-          content: `🎉🎉🎉 桌面版0.96.7版本已经发布，大家可以尽情尝鲜了，并且希望大家在 QQ 群踊跃反馈使用体验，我会在第一时间响应。`,
+          content: `🎉🎉🎉 桌面版已支持QQ游戏大厅`,
           style: "font-size: 12px;",
         },
         {
           type: "hr",
         },
+        // {
+        //   type: "title",
+        //   content: "0.96.7",
+        // },
         {
-          type: "title",
-          content: "0.96.7",
-        },{
           type: "text",
           content: `
           <ul>
-            <li>自动战斗序列,解放双手!</li>
-            <li>WPE神装,星三神</li>
+            <li>自动战斗序列, 解放双手!</li>
+            <li>自动过动态验证, 无忧挂机!</li>
+            <li>WPE神装, 星三神</li>
             <li>1级VIP签到</li>
           </ul>`,
           style: "font-size: 12px;",
@@ -189,6 +191,7 @@ export default defineUserConfig({
           content: `
           <ul>
             <li>QQ群1：560363912</li>
+            <li>QQ群2：1032262153</li>
           </ul>`,
           style: "font-size: 12px;",
         },
