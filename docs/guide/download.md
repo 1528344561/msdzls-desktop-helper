@@ -49,6 +49,10 @@
 
 ![alt text](./img/windows_access_error.png)
 
+首先检查电脑是否有360, 金山毒霸这类杀毒软件, 如有, 请卸载后再尝试. 
+
+如果仍然不行, 接着往下看
+
 [解决办法](https://www.bilibili.com/video/BV1Ki4y157cV)
 
 尝试视频和**评论区的所有方法**
