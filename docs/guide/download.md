@@ -9,11 +9,14 @@
 
 下载遇到问题?
 
-<img src="./img/QA_下载.png"></img>
+**右键展开点保留**
+<table>
+  <tr>
+    <td><img src="./img/QA_下载.png" /></td>
+    <td><img src="./img/QA_保留.png" height="245" /></td>
+  </tr>
+</table>
 
-右键展开点保留
-
-<img src="./img/QA_保留.png" height=200></img>
 
 <!-- [推荐的解压软件](https://www.bandisoft.com/bandizip/dl.php?web) (没有好用的解压软件的可以下载这个,比较推荐,但非必选) -->
 
