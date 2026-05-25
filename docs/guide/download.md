@@ -12,8 +12,8 @@
 **右键展开点保留**
 <table>
   <tr>
-    <td><img src="./img/qa_download.png" /></td>
-    <td><img src="./img/qa_keep.png" height="245" /></td>
+    <td><img src="/qa_download.png" /></td>
+    <td><img src="/qa_keep.png" height="245" /></td>
   </tr>
 </table> -->
 

@@ -4,12 +4,12 @@
 
 ### 浏览器提示不会下载
 
-![alt text](./img/qa_download.png)
+![alt text](/qa_download.png)
 
 右键, 保留
 
 
-<img src="./img/qa_keep.png" width="40%" height=250></img>
+<img src="/qa_keep.png" width="40%" height=250></img>
 
 选择仍然保留
 

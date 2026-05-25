@@ -68,8 +68,8 @@ const props = withDefaults(
   {
     text: '点我下载桌面版',
     closeText: '我知道了, 立即下载',
-    downloadImg: '/docs/guide/img/qa_download.png',
-    keepImg: '/docs/guide/img/qa_keep.png',
+    downloadImg: '/qa_download.png',
+    keepImg: '/qa_keep.png',
   },
 )
 
