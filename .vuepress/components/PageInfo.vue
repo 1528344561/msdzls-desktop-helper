@@ -51,6 +51,16 @@ type UmamiMetrics = {
 }
 
 const UMAMI_METRICS_URL = 'https://helper.rainysnow.com/metrics'
+const LAST_UPDATED_FORMATTER = new Intl.DateTimeFormat('zh-CN', {
+  timeZone: 'Asia/Shanghai',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: false,
+})
 
 function formatCategory(category: string) {
   return convertToPinyin(removeEmptyString(category))
@@ -107,7 +117,7 @@ const lastUpdated = computed(() => {
     return ''
   }
 
-  return new Date(updatedTime).toLocaleString()
+  return LAST_UPDATED_FORMATTER.format(new Date(updatedTime))
 })
 
 const date = computed(() => {

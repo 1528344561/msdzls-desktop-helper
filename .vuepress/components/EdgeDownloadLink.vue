@@ -9,53 +9,48 @@
     >
       <slot>{{ text }}</slot>
     </a>
-
-    <Teleport to="body">
-      <div v-if="visible" class="edge-download-link__overlay" @click.self="noop">
-        <div
-          class="edge-download-link__modal"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="edge-download-title"
-        >
-          <h3 id="edge-download-title">下载遇到问题?</h3>
-          <p class="edge-download-link__desc">检测到你正在使用<strong> Edge 浏览器</strong>，下载软件后, 请按下面操作处理下载拦截问题。</p>
-
-
-          <table class="edge-download-link__table">
-            <tr>
-              <td>
-              <img :src="downloadImage" alt="下载提示" />
-          <p class="edge-download-link__highlight"><strong>1.右键展开点保留</strong></p>
-              
-              </td>
-
-              <td><img :src="keepImage" alt="保留按钮" />
-          <p class="edge-download-link__highlight"><strong>2.点击此按钮, 点保留</strong></p>
-              
-              </td>
-            </tr>
-          </table>
-          <p> 此弹窗是作者实在忍受不了后才做的, 如造成不便敬请谅解</p>
-          <p> 请原谅我这么啰嗦，如果我不做弹窗，那么真的会有人在<strong>答案不管贴在下载的上面还是下面</strong>的情况下，愣是<strong>没看到</strong>，然后去群里问<strong>为什么无法下载</strong></p>
-          <p> <del>请原谅我这么啰嗦，如果我把下载放在最上面，那么真的会有人在<strong>答案就贴在下载的下面</strong>的情况下，告诉我<strong>没看到</strong>，然后去群里问<strong>为什么无法下载</strong></del></p>
-          <div class="edge-download-link__actions">
-            <button type="button" class="edge-download-link__secondary edge-download-link__button" @click="closeModal">
-              关闭
-            </button>
-            <button
-              type="button"
-              class="edge-download-link__primary edge-download-link__button"
-              :disabled="countdown > 0"
-              @click="openAfterConfirm"
-            >
-              {{ countdown > 0 ? `${countdown} 秒后可点击立即下载` : closeText }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </Teleport>
   </span>
+
+  <div v-if="visible" class="edge-download-link__overlay" @click.self="noop">
+    <div
+      class="edge-download-link__modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="edge-download-title"
+    >
+      <h3 id="edge-download-title">下载遇到问题?</h3>
+      <p class="edge-download-link__desc">检测到你正在使用<strong> Edge 浏览器</strong>，下载软件后, 请按下面操作处理下载拦截问题。</p>
+
+      <table class="edge-download-link__table">
+        <tr>
+          <td>
+            <img :src="downloadImage" alt="下载提示" />
+            <p class="edge-download-link__highlight"><strong>1.右键展开点保留</strong></p>
+          </td>
+          <td>
+            <img :src="keepImage" alt="保留按钮" />
+            <p class="edge-download-link__highlight"><strong>2.点击此按钮, 点保留</strong></p>
+          </td>
+        </tr>
+      </table>
+      <p> 此弹窗是作者实在忍受不了后才做的, 如造成不便敬请谅解</p>
+      <p> 请原谅我这么啰嗦，如果我不做弹窗，那么真的会有人在<strong>答案不管贴在下载的上面还是下面</strong>的情况下，愣是<strong>没看到</strong>，然后去群里问<strong>为什么无法下载</strong></p>
+      <p> <del>请原谅我这么啰嗦，如果我把下载放在最上面，那么真的会有人在<strong>答案就贴在下载的下面</strong>的情况下，告诉我<strong>没看到</strong>，然后去群里问<strong>为什么无法下载</strong></del></p>
+      <div class="edge-download-link__actions">
+        <button type="button" class="edge-download-link__secondary edge-download-link__button" @click="closeModal">
+          关闭
+        </button>
+        <button
+          type="button"
+          class="edge-download-link__primary edge-download-link__button"
+          :disabled="countdown > 0"
+          @click="openAfterConfirm"
+        >
+          {{ countdown > 0 ? `${countdown} 秒后可点击立即下载` : closeText }}
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -73,8 +68,8 @@ const props = withDefaults(
   {
     text: '点我下载桌面版',
     closeText: '我知道了, 立即下载',
-    downloadImg: '/docs/guide/img/QA_下载.png',
-    keepImg: '/docs/guide/img/QA_保留.png',
+    downloadImg: '/docs/guide/img/qa_download.png',
+    keepImg: '/docs/guide/img/qa_keep.png',
   },
 )
 
