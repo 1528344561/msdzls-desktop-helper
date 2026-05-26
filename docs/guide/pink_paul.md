@@ -1,5 +1,7 @@
 # 粉红保罗
 
+[挂机教程](https://www.bilibili.com/video/BV1QYA2emE4E)
+
 ## 勾选了放卡,不放置海星?
 
 1. 卡组不要带太多卡,否则无法放置海星

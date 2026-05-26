@@ -73,3 +73,5 @@
 掉落物全地图查询 https://faa.msdzls.cn
 
 美食数据站 https://msdzls.cn
+
+卡片图鉴 https://tujian.rainysnow.com
