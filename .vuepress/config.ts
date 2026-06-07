@@ -143,6 +143,8 @@ export default defineUserConfig({
     },
     navbar: [
       { text: "首页", link: "/" , icon: 'IconHome'},
+      {text: "立即下载", link: "/docs/guide/download", icon: 'IconDownload'},
+      {text: "更新日志", link: "/docs/guide/update_log", icon: 'IconUpdate'},
       {text: "关于", link: "/docs/about/", icon: 'IconAbout'},
       // { text: "Categories", link: "/categories/reco/1.html" },
       // { text: "Tags", link: "/tags/tag1/1.html" },
@@ -224,19 +226,6 @@ export default defineUserConfig({
         },
       ],
     },
-    // commentConfig: {
-    //   type: 'valine',
-    //   // options 与 1.x 的 valineConfig 配置一致
-    //   options: {
-    //     appId: 'CeGWOm7NSXRtlIyQKqYJZvv3-gzGzoHsz',
-    //     appKey: 'HOoaJWYZWat6lVQ8KgFJCI5O',
-    //     placeholder: 'cs.lzh@qq.com',
-    //     verify: true, // 验证码服务
-    //     notify: true,
-    //     recordIP: true,
-    //     hideComments: false // 隐藏评论
-    //   },
-    // },
   }),
   // debug: true,
 });
