@@ -63,7 +63,7 @@ export default defineUserConfig({
               text:"打不开游戏窗口",
               link:"game_window_enter_failed"
             },{
-              "text":"无法进入",
+              "text":"无法进入游戏",
               "link":"game_enter_failed"
             },{
               "text":"游戏偶尔崩溃",
