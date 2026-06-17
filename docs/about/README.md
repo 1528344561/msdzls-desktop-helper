@@ -1,6 +1,6 @@
 # PROFILE
 
-Rainy
+你好！我是 Rainy
 
 ![image](https://q1.qlogo.cn/g?b=qq&nk=2254399813&s=100)
 
