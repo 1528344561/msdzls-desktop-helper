@@ -1,8 +1,11 @@
+import { nextTick, onMounted } from 'vue'
 import { defineClientConfig } from 'vuepress/client'
 
 const DOCSEARCH_APP_ID = 'PJ9U6DIZSJ'
 const DOCSEARCH_API_KEY = '75f85ee4ec6d355a58cd133fa1f12240'
 const DOCSEARCH_INDEX_NAME = 'Document Website'
+const DOCSEARCH_INIT_RETRY_LIMIT = 100
+const HOME_ACTION_BUTTONS_READY_CLASS = 'home-action-buttons-ready'
 
 let initialized = false
 let retries = 0
@@ -16,7 +19,7 @@ function initDocSearch() {
   const docsearch = (window as typeof window & { docsearch?: (options: Record<string, unknown>) => void }).docsearch
 
   if (!container || typeof docsearch !== 'function') {
-    if (retries < 30) {
+    if (retries < DOCSEARCH_INIT_RETRY_LIMIT) {
       retries += 1
       window.setTimeout(initDocSearch, 100)
     }
@@ -38,6 +41,25 @@ function initDocSearch() {
   }
 }
 
+function markHomeActionButtonsReady() {
+  if (typeof window === 'undefined') {
+    return
+  }
+
+  void nextTick(() => {
+    const markReady = () => {
+      document.documentElement.classList.add(HOME_ACTION_BUTTONS_READY_CLASS)
+    }
+
+    if (typeof window.requestAnimationFrame === 'function') {
+      window.requestAnimationFrame(markReady)
+      return
+    }
+
+    markReady()
+  })
+}
+
 export default defineClientConfig({
   enhance() {
     if (typeof window === 'undefined') {
@@ -47,5 +69,8 @@ export default defineClientConfig({
     window.setTimeout(() => {
       initDocSearch()
     }, 100)
+  },
+  setup() {
+    onMounted(markHomeActionButtonsReady)
   },
 })

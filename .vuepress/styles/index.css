@@ -47,6 +47,58 @@
     url("https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/loadingbg.jpg") center/cover no-repeat;
 } */
 
+.banner-brand__wrapper .btn-group {
+  min-height: 2.5rem;
+  transition: opacity 0.18s ease;
+}
+
+html:not(.home-action-buttons-ready) .banner-brand__wrapper .btn-group {
+  pointer-events: none;
+  cursor: progress;
+}
+
+html:not(.home-action-buttons-ready) .banner-brand__wrapper .btn-group::before {
+  content: '加载中...';
+  display: inline-flex;
+  align-items: center;
+  height: 2.5rem;
+  margin: 0 0.75rem 0.75rem 0;
+  padding: 0 0.9rem;
+  border: 1px solid rgba(79, 140, 255, 0.45);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(47, 111, 228, 0.2);
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+html:not(.home-action-buttons-ready) .banner-brand__wrapper .btn-group .xicon-container {
+  position: relative;
+  overflow: hidden;
+  opacity: 0.68;
+  cursor: progress;
+}
+
+html:not(.home-action-buttons-ready) .banner-brand__wrapper .btn-group .xicon-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.24) 45%, transparent 75%);
+  transform: translateX(-100%);
+  animation: home-button-loading 1.2s ease-in-out infinite;
+}
+
+html.home-action-buttons-ready .banner-brand__wrapper .btn-group {
+  pointer-events: auto;
+}
+
+@keyframes home-button-loading {
+  to {
+    transform: translateX(100%);
+  }
+}
+
 .search-box .DocSearch.DocSearch-Button {
   cursor: text;
   width: 10rem;

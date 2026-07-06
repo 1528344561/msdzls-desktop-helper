@@ -19,7 +19,7 @@ export default defineUserConfig({
       'data-website-id': '4a8a1af4-c021-45e3-8a33-8b798e1d362f'
     }],
     ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@alpha', rel: 'stylesheet' }],
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@alpha' }]
+    ['script', { async: '', src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@alpha' }]
   ],
   theme: recoTheme({
     colorMode: "dark",
