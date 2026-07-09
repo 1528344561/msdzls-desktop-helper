@@ -43,7 +43,7 @@
 铜食神宝箱菜谱碎片|绑定
 ```
 
-[点我查看旧版本清理列表,方便迁移](https://ini-ms.rainysnow.com/old_clean_backpag.ini)
+[点我查看预制的一份清理列表,无需从零开始填写](https://ini-ms.rainysnow.com/old_clean_backpag.ini)
 
 该操作执行时自动完成清理, 可直接打开背包查看清理结果, 清理时也无需打开背包, 可随时一键清理. 其余功能同理.
 
