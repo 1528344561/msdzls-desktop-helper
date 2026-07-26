@@ -1,234 +1,1309 @@
-#app > div > div > main > section.banner-brand__wrapper > div > h1 {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 0;
-  border-right: 3px solid #007acc;
-  animation: 
-    typing 2.3s steps(30, end) forwards,
-    blink-caret 0.8s step-end infinite;
-  margin: 0;
-  padding: 0;
+/* =============================================================================
+   RAINY GLASS — 雨夜液态玻璃设计系统
+   美食桌面版帮助文档 · 前端视觉层
+   -----------------------------------------------------------------------------
+   本文件只负责「设计令牌 + 全站外壳」。
+   首页 / 雨幕 / 配色切换器 的样式各自内聚在对应组件的 <style scoped> 中。
+
+   目录
+     01  设计令牌与配色（5 套）
+     02  基底与排版
+     03  雨幕图层
+     04  液态玻璃材质原语
+     05  主题外壳覆写（导航栏 / 侧边栏 / 目录 / 正文 / 代码 / 表格）
+     06  公告栏 · 弹窗 · 搜索 · 回到顶部
+     07  更新日志专属版式
+     08  降级与响应式
+   ========================================================================== */
+
+/* =============================================================================
+   01  设计令牌与配色
+   ========================================================================== */
+
+:root {
+  /* —— 字体 —— */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "PingFang SC", "HarmonyOS Sans SC", "Noto Sans CJK SC", "Source Han Sans SC",
+    "Microsoft YaHei", sans-serif;
+  --font-display: "Inter Tight", "Inter", -apple-system, BlinkMacSystemFont,
+    "PingFang SC", "HarmonyOS Sans SC", "Source Han Sans SC", "Microsoft YaHei",
+    sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, Consolas,
+    "Liberation Mono", Menlo, monospace;
+
+  /* —— 圆角节奏 —— */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 26px;
+  --r-xl: 34px;
+  --r-pill: 999px;
+
+  /* —— 动效曲线 —— */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 0.22s;
+  --dur-base: 0.42s;
+  --dur-slow: 0.9s;
+
+  /* —— 玻璃材质（各配色可覆写强度）—— */
+  --glass-blur: 22px;
+  --glass-sat: 165%;
+  --glass-fill: linear-gradient(
+    148deg,
+    rgba(255, 255, 255, 0.11),
+    rgba(255, 255, 255, 0.028) 44%,
+    rgba(255, 255, 255, 0.065)
+  );
+  --glass-rim: inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 1px 0 0 rgba(255, 255, 255, 0.09),
+    inset -1px 0 0 rgba(255, 255, 255, 0.09),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 28px 70px -26px rgba(0, 0, 0, 0.72),
+    0 2px 12px rgba(0, 0, 0, 0.24);
+  --glass-line: rgba(255, 255, 255, 0.12);
+
+  /* —— 雨量，由配色切换器写入：0 / 0.55 / 1 —— */
+  --rain-opacity: 1;
+
+  color-scheme: dark;
 }
 
-@keyframes typing {
-  from { 
-    width: 0; 
-  }
-  to { 
-    /* width: 100%;  */
-    width: 9ch;
-  }
+/* ---- 01·A  深夜暴雨（默认）------------------------------------------------ */
+:root,
+html[data-palette="midnight"] {
+  --bg-0: #04060c;
+  --bg-1: #070b16;
+  --bg-2: #0b1120;
+
+  --ink-1: rgba(233, 240, 255, 0.96);
+  --ink-2: rgba(198, 213, 240, 0.78);
+  /* ink-3 也要承载正文（卡片描述、页脚、目录），不能压到 AA 以下 */
+  --ink-3: rgba(178, 196, 224, 0.72);
+
+  --accent: #4f8cff;
+  --accent-2: #73e0ff;
+  --accent-3: #a78bfa;
+  --accent-ink: #ffffff;
+
+  --glow: rgba(79, 140, 255, 0.42);
+
+  /* 雨幕取色（RGB 分量，供 canvas 读取） */
+  --drop-rgb: 210, 240, 255;
+  --streak-rgb: 168, 208, 255;
+  --sky-a: #05080f;
+  --sky-b: #0a1526;
+  --sky-c: #112a45;
+
+  --glass-blend: screen;
+  color-scheme: dark;
 }
 
-@keyframes blink-caret {
-  from, to { 
-    border-color: transparent; 
-  }
-  50% { 
-    border-color: #007acc; 
-  }
+/* ---- 01·B  霓虹雨夜 -------------------------------------------------------- */
+html[data-palette="neon"] {
+  --bg-0: #08040f;
+  --bg-1: #0d0618;
+  --bg-2: #140a24;
+
+  --ink-1: rgba(250, 238, 255, 0.96);
+  --ink-2: rgba(226, 205, 245, 0.78);
+  --ink-3: rgba(208, 188, 232, 0.72);
+
+  --accent: #c05bff;
+  --accent-2: #ff4fa3;
+  --accent-3: #46e8ff;
+  --accent-ink: #ffffff;
+
+  --glow: rgba(192, 91, 255, 0.45);
+
+  --drop-rgb: 255, 226, 250;
+  --streak-rgb: 236, 176, 255;
+  --sky-a: #08040f;
+  --sky-b: #1a0a2e;
+  --sky-c: #3a0f4d;
+
+  --glass-blend: screen;
+  color-scheme: dark;
 }
 
-/* 可选：鼠标悬停时暂停动画 */
-#app > div > div > main > section.banner-brand__wrapper > div > h1:hover {
-  animation-play-state: paused;
+/* ---- 01·C  苔雨青林 -------------------------------------------------------- */
+html[data-palette="moss"] {
+  --bg-0: #030907;
+  --bg-1: #061210;
+  --bg-2: #0a1a17;
+
+  --ink-1: rgba(232, 251, 243, 0.96);
+  --ink-2: rgba(196, 230, 218, 0.78);
+  --ink-3: rgba(172, 212, 198, 0.72);
+
+  --accent: #34d399;
+  --accent-2: #7dd3fc;
+  --accent-3: #bef264;
+  --accent-ink: #04120e;
+
+  --glow: rgba(52, 211, 153, 0.38);
+
+  --drop-rgb: 214, 255, 240;
+  --streak-rgb: 160, 232, 208;
+  --sky-a: #030908;
+  --sky-b: #071a17;
+  --sky-c: #0d3330;
+
+  --glass-blend: screen;
+  color-scheme: dark;
 }
 
-/* 可选：动画完成后移除光标 */
-#app > div > div > main > section.banner-brand__wrapper > div > h1.animation-complete {
-  border-right: none;
+/* ---- 01·D  琥珀夜灯 -------------------------------------------------------- */
+html[data-palette="amber"] {
+  --bg-0: #0a0603;
+  --bg-1: #120b04;
+  --bg-2: #1c1207;
+
+  --ink-1: rgba(255, 245, 232, 0.96);
+  --ink-2: rgba(240, 219, 193, 0.8);
+  --ink-3: rgba(226, 202, 172, 0.74);
+
+  --accent: #ffa94d;
+  --accent-2: #ffd43b;
+  --accent-3: #ff7a6b;
+  --accent-ink: #1a0d02;
+
+  --glow: rgba(255, 169, 77, 0.42);
+
+  --drop-rgb: 255, 236, 208;
+  --streak-rgb: 255, 208, 150;
+  --sky-a: #0a0603;
+  --sky-b: #1e1005;
+  --sky-c: #402008;
+
+  --glass-blend: screen;
+  color-scheme: dark;
 }
 
-/* #app > div.theme-container.series--no > div > main > section.banner-brand__wrapper {
-  overflow: hidden;
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/loadingbg.jpg") center/cover no-repeat;
-} */
+/* ---- 01·E  冷雾晨白（浅色）------------------------------------------------ */
+html[data-palette="mist"] {
+  --bg-0: #e6ebf3;
+  --bg-1: #f3f6fb;
+  --bg-2: #ffffff;
 
-.banner-brand__wrapper .btn-group {
-  min-height: 2.5rem;
-  transition: opacity 0.18s ease;
+  --ink-1: rgba(14, 20, 32, 0.94);
+  --ink-2: rgba(40, 52, 72, 0.84);
+  --ink-3: rgba(56, 70, 92, 0.78);
+
+  --accent: #2f6fe4;
+  --accent-2: #1490b4;
+  --accent-3: #7c5cf0;
+  --accent-ink: #ffffff;
+
+  --glow: rgba(47, 111, 228, 0.24);
+
+  --drop-rgb: 96, 132, 178;
+  --streak-rgb: 122, 156, 196;
+  --sky-a: #dfe6ef;
+  --sky-b: #eef2f8;
+  --sky-c: #ccd8e8;
+
+  --glass-blur: 20px;
+  --glass-sat: 150%;
+  --glass-fill: linear-gradient(
+    148deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.52) 46%,
+    rgba(255, 255, 255, 0.68)
+  );
+  --glass-rim: inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 1px 0 0 rgba(255, 255, 255, 0.6),
+    inset -1px 0 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(16, 22, 34, 0.05);
+  --glass-shadow: 0 24px 56px -28px rgba(24, 40, 70, 0.36),
+    0 2px 8px rgba(24, 40, 70, 0.08);
+  --glass-line: rgba(24, 40, 70, 0.11);
+  --glass-blend: multiply;
+  color-scheme: light;
 }
 
-html:not(.home-action-buttons-ready) .banner-brand__wrapper .btn-group {
-  pointer-events: none;
-  cursor: progress;
-}
-
-html:not(.home-action-buttons-ready) .banner-brand__wrapper .btn-group::before {
-  content: '加载中...';
-  display: inline-flex;
-  align-items: center;
-  height: 2.5rem;
-  margin: 0 0.75rem 0.75rem 0;
-  padding: 0 0.9rem;
-  border: 1px solid rgba(79, 140, 255, 0.45);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.88);
-  background: rgba(47, 111, 228, 0.2);
-  font-size: 14px;
-  font-weight: 600;
-  vertical-align: middle;
-}
-
-html:not(.home-action-buttons-ready) .banner-brand__wrapper .btn-group .xicon-container {
-  position: relative;
-  overflow: hidden;
-  opacity: 0.68;
-  cursor: progress;
-}
-
-html:not(.home-action-buttons-ready) .banner-brand__wrapper .btn-group .xicon-container::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.24) 45%, transparent 75%);
-  transform: translateX(-100%);
-  animation: home-button-loading 1.2s ease-in-out infinite;
-}
-
-html.home-action-buttons-ready .banner-brand__wrapper .btn-group {
-  pointer-events: auto;
-}
-
-@keyframes home-button-loading {
-  to {
-    transform: translateX(100%);
-  }
-}
-
-.search-box .DocSearch.DocSearch-Button {
-  cursor: text;
-  width: 10rem;
-  height: 2rem;
-  color: #5b5b5b;
-  border: 1px solid var(--border-color);
-  border-radius: 0.25rem;
-  font-size: 0.9rem;
-  padding: 0 0.5rem 0 0rem;
-  outline: none;
-  transition: all 0.2s ease;
-  background: transparent;
-  background-size: 1rem;
-}
-
-.search-box .DocSearch-Button-Container {
-  margin-left: 0.4rem;
-}
-
-.search-box .DocSearch-Button .DocSearch-Search-Icon {
-  width: 16px;
-  height: 16px;
-  position: relative;
-  top: 0.1rem;
-}
-
-.search-box .DocSearch-Button-Placeholder {
-  font-size: 0.8rem;
-}
-
-.search-box .DocSearch-Button-Keys {
-  position: absolute;
-  right: 0.1rem;
-}
-
-.search-box .DocSearch-Button-Key {
-  font-size: 12px;
-  line-height: 20px;
-}
+/* =============================================================================
+   02  基底与排版
+   ========================================================================== */
 
 html {
   scroll-padding-top: 96px;
+  scroll-behavior: smooth;
+  background: var(--bg-0);
+  -webkit-text-size-adjust: 100%;
 }
 
-.theme-reco-md-content :is(h1, h2, h3, h4, h5, h6) {
+body {
+  background: transparent !important;
+  color: var(--ink-1);
+  font-family: var(--font-sans);
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 主题容器让位给雨幕 */
+.theme-container,
+.theme-main,
+.home-wrapper {
+  background: transparent !important;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* 滚动条 —— 一道流下的水痕 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--glass-line) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: var(--r-pill);
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-width: 2px;
+}
+
+/* 键盘焦点 */
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =============================================================================
+   03  雨幕图层
+   ========================================================================== */
+
+/* 天空 / 落雨（内容之下） */
+.rain-sky {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: var(--rain-opacity);
+  transition: opacity var(--dur-slow) var(--ease-out-expo);
+}
+
+/* 玻璃上的水珠（内容之上，不拦截指针） */
+.rain-glass {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: var(--glass-blend);
+  opacity: calc(0.62 * var(--rain-opacity));
+  transition: opacity var(--dur-slow) var(--ease-out-expo);
+}
+
+.rain-glass[data-context="doc"] {
+  opacity: calc(0.28 * var(--rain-opacity));
+}
+
+/* 环境光晕 —— 给雨幕纵深 */
+.rain-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+  background:
+    radial-gradient(
+      120% 80% at 12% -10%,
+      color-mix(in srgb, var(--accent) 20%, transparent) 0%,
+      transparent 58%
+    ),
+    radial-gradient(
+      90% 70% at 92% 6%,
+      color-mix(in srgb, var(--accent-2) 14%, transparent) 0%,
+      transparent 62%
+    ),
+    radial-gradient(
+      140% 110% at 50% 118%,
+      color-mix(in srgb, var(--accent-3) 11%, transparent) 0%,
+      transparent 60%
+    );
+}
+
+/* 雾面颗粒 —— 消除渐变色带 */
+.rain-grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+}
+
+/* 闪电 */
+.rain-flash {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity;
+  background: radial-gradient(
+    110% 62% at 50% -6%,
+    rgba(255, 255, 255, 0.85),
+    transparent 68%
+  );
+}
+
+/* SVG 滤镜容器 */
+.rain-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* =============================================================================
+   04  液态玻璃材质原语
+   ========================================================================== */
+
+.glass {
+  position: relative;
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-lg);
+  background-image: var(--glass-fill);
+  background-color: color-mix(in srgb, var(--bg-1) 42%, transparent);
+  box-shadow: var(--glass-rim), var(--glass-shadow);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  isolation: isolate;
+}
+
+/* 边缘折射：沿轮廓游走的一道冷光 */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out-expo);
+  background: linear-gradient(
+    140deg,
+    color-mix(in srgb, var(--accent-2) 60%, transparent),
+    transparent 32%,
+    transparent 68%,
+    color-mix(in srgb, var(--accent) 44%, transparent)
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.glass:hover::before {
+  opacity: 1;
+}
+
+/* 指针跟随的镜面光斑 */
+.glass-specular {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out-expo);
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.16),
+    transparent 62%
+  );
+}
+
+.glass:hover .glass-specular {
+  opacity: 1;
+}
+
+/* =============================================================================
+   05  主题外壳覆写
+   ========================================================================== */
+
+/* ---- 05·A  导航栏 ---------------------------------------------------------- */
+.navbar-container {
+  background: color-mix(in srgb, var(--bg-0) 46%, transparent) !important;
+  border-bottom: 1px solid var(--glass-line) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(170%) !important;
+  backdrop-filter: blur(20px) saturate(170%) !important;
+  transition: background var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-expo);
+}
+
+.navbar-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  opacity: 0.55;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--accent) 65%, transparent) 22%,
+    color-mix(in srgb, var(--accent-2) 65%, transparent) 68%,
+    transparent
+  );
+}
+
+.navbar-container .navbar-inner {
+  max-width: 1400px;
+}
+
+/* 主题自带的明暗切换按钮下线：外观统一交给左下角的配色控制台，
+   否则两个控件会互相覆盖 html.dark，浅色配色下会串出暗色残留 */
+.navbar-container .btn-toggle-dark-mode {
+  display: none !important;
+}
+
+.navbar-container .site-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink-1) !important;
+}
+
+/* 导航链接 —— 悬停浮起的玻璃胶囊 */
+.navbar-links__item > a,
+.navbar-links__item .dropdown-link__title {
+  position: relative;
+  color: var(--ink-2) !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: color var(--dur-fast) var(--ease-out-expo);
+}
+
+.navbar-links__item > a::before,
+.navbar-links__item .dropdown-link__title::before {
+  content: "";
+  position: absolute;
+  inset: 14% -12px;
+  z-index: -1;
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  opacity: 0;
+  transform: scale(0.86);
+  pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease-out-expo),
+    transform var(--dur-fast) var(--ease-spring),
+    border-color var(--dur-fast) var(--ease-out-expo);
+}
+
+.navbar-links__item > a:hover,
+.navbar-links__item .dropdown-link__title:hover,
+.navbar-links__item > a.router-link-active {
+  color: var(--ink-1) !important;
+}
+
+.navbar-links__item > a:hover::before,
+.navbar-links__item .dropdown-link__title:hover::before,
+.navbar-links__item > a.router-link-active::before {
+  opacity: 1;
+  transform: scale(1);
+  border-color: color-mix(in srgb, var(--accent) 34%, transparent);
+}
+
+/* ---- 05·B  侧边栏（series）------------------------------------------------ */
+.series-container {
+  background: transparent;
+}
+
+.series--open .series-container {
+  background: color-mix(in srgb, var(--bg-0) 88%, transparent) !important;
+  border-right: 1px solid var(--glass-line);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+}
+
+.series-container .series-heading {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  color: var(--ink-1) !important;
+}
+
+.series-container h5.series-heading {
+  font-size: 0.94rem;
+}
+
+.series-container h6.series-heading {
+  color: var(--ink-3) !important;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.series-container .series-group:not(:first-of-type) {
+  border-top-color: var(--glass-line) !important;
+}
+
+.series-container h5.series-heading.series-level-1 + ul > li {
+  border-left-color: var(--glass-line) !important;
+}
+
+.series-container a.series-item {
+  padding-left: 0.6rem;
+  padding-right: 0.5rem;
+  border-radius: 10px;
+  color: var(--ink-2) !important;
+  transition: background var(--dur-fast) var(--ease-out-expo),
+    color var(--dur-fast) var(--ease-out-expo),
+    padding var(--dur-base) var(--ease-out-expo);
+}
+
+.series-container a.series-item span {
+  color: inherit !important;
+}
+
+.series-container a.series-item::before {
+  left: 0.25rem;
+  background: linear-gradient(140deg, var(--accent), var(--accent-2)) !important;
+  box-shadow: 0 0 12px var(--glow);
+}
+
+.series-container a.series-item:hover {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--ink-1) !important;
+}
+
+.series-container a.series-item.router-link-active {
+  padding-left: 1.1rem;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--ink-1) !important;
+  font-weight: 650;
+}
+
+.series-container a.series-item.router-link-active span {
+  color: var(--ink-1) !important;
+}
+
+/* ---- 05·C  右侧目录 -------------------------------------------------------- */
+.page-catalog-container .tip {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3) !important;
+}
+
+.page-catalog-container .page-catalog-menu-depth_2 {
+  border-top-color: var(--glass-line) !important;
+}
+
+.page-catalog-container .page-catalog-item {
+  color: var(--ink-2) !important;
+  transition: color var(--dur-fast) var(--ease-out-expo);
+}
+
+.page-catalog-container li.active .page-catalog-item,
+.page-catalog-container li.active .page-catalog-item span {
+  color: var(--accent-2) !important;
+}
+
+.page-catalog-container .page-catalog-menu-depth_3::before {
+  background: var(--accent-2) !important;
+  box-shadow: 0 0 10px var(--glow);
+}
+
+/* ---- 05·D  正文容器 —— 一块架在雨里的玻璃 --------------------------------- */
+.page-container {
+  padding-top: 1.5rem;
+}
+
+.page-content {
+  position: relative;
+  margin: 0.5rem 0 3rem;
+  padding: 2.4rem 2.6rem 2.8rem !important;
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-xl);
+  background-image: var(--glass-fill);
+  background-color: color-mix(in srgb, var(--bg-1) 62%, transparent);
+  box-shadow: var(--glass-rim), var(--glass-shadow);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+}
+
+.page-title {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.2rem + 2.6vw, 3.1rem);
+  font-weight: 850;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: var(--ink-1);
+}
+
+/* 渐变字只在支持 background-clip: text 时启用，
+   否则 color: transparent 会让整个标题消失 */
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .page-title {
+    color: transparent;
+    background: linear-gradient(
+      128deg,
+      var(--ink-1) 6%,
+      var(--accent-2) 52%,
+      var(--accent) 96%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* ---- 05·E  Markdown 正文 --------------------------------------------------- */
+.theme-reco-md-content {
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+.theme-reco-md-content :is(h2, h3, h4, h5, h6) {
+  font-family: var(--font-display);
+  color: var(--ink-1);
+  letter-spacing: -0.02em;
   scroll-margin-top: 96px;
+}
+
+.theme-reco-md-content h2 {
+  position: relative;
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  padding-left: 0.9rem;
+  border-top: 1px solid var(--glass-line);
+  font-size: 1.55rem;
+  font-weight: 800;
+}
+
+.theme-reco-md-content h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.9rem;
+  width: 3px;
+  height: 1.15em;
+  border-radius: var(--r-pill);
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  box-shadow: 0 0 14px var(--glow);
+}
+
+.theme-reco-md-content h3 {
+  margin-top: 2.2rem;
+  font-size: 1.2rem;
+  font-weight: 750;
 }
 
 .theme-reco-md-content :is(h1, h2, h3, h4, h5, h6) .header-anchor {
   scroll-margin-top: 96px;
+  color: var(--ink-3);
 }
 
-.update-log .theme-reco-md-content {
-  --update-log-accent: #2f6fe4;
-  --update-log-accent-soft: rgba(47, 111, 228, 0.12);
-  --update-log-border: rgba(47, 111, 228, 0.16);
-  --update-log-surface: #f8fbff;
-  --update-log-text: #1f2a37;
-  --update-log-title-text: #17325f;
+.theme-reco-md-content p {
+  margin: 1.05rem 0;
 }
 
-html.dark .update-log .theme-reco-md-content,
-html[data-theme='dark'] .update-log .theme-reco-md-content {
-  --update-log-accent: #4f8cff;
-  --update-log-accent-soft: rgba(79, 140, 255, 0.16);
-  --update-log-border: rgba(255, 255, 255, 0.1);
-  --update-log-surface: rgba(18, 24, 38, 0.72);
-  --update-log-text: rgba(235, 240, 255, 0.94);
-  --update-log-title-text: #f4f7ff;
+.theme-reco-md-content strong {
+  color: var(--ink-1);
+  font-weight: 700;
 }
+
+.theme-reco-md-content a {
+  color: var(--accent-2) !important;
+  text-decoration: none !important;
+  background-image: linear-gradient(var(--accent-2), var(--accent-2));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--dur-base) var(--ease-out-expo);
+}
+
+.theme-reco-md-content a:hover {
+  background-size: 100% 1px;
+}
+
+.theme-reco-md-content :is(ul, ol) {
+  padding-left: 1.35rem;
+}
+
+.theme-reco-md-content li {
+  margin: 0.4rem 0;
+}
+
+.theme-reco-md-content li::marker {
+  color: var(--accent);
+}
+
+.theme-reco-md-content blockquote {
+  margin: 1.4rem 0;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--glass-line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  color: var(--ink-2);
+}
+
+.theme-reco-md-content blockquote p {
+  margin: 0.3rem 0;
+}
+
+.theme-reco-md-content hr {
+  margin: 2.4rem 0;
+  height: 1px;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--glass-line) 18%,
+    var(--glass-line) 82%,
+    transparent
+  );
+}
+
+.theme-reco-md-content img {
+  max-width: 100%;
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-md);
+  box-shadow: 0 18px 46px -22px rgba(0, 0, 0, 0.7);
+  transition: transform var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo);
+}
+
+.theme-reco-md-content img:hover {
+  transform: translateY(-2px) scale(1.006);
+  box-shadow: 0 26px 60px -22px rgba(0, 0, 0, 0.8);
+}
+
+/* 行内代码 */
+.theme-container .theme-reco-md-content code {
+  border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--accent) 13%, transparent) !important;
+  color: var(--accent-2);
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+/* ---- 05·F  代码块 ---------------------------------------------------------- */
+div[class*="language-"] {
+  border: 1px solid var(--glass-line) !important;
+  border-radius: var(--r-md) !important;
+  background: color-mix(in srgb, #000 34%, var(--bg-2)) !important;
+  box-shadow: var(--glass-shadow);
+}
+
+/* 浅色配色下代码块仍保持深底：prism 的 token 配色是为暗底调的。
+   但 reco 的基础字色跟着 .dark 走，浅色时会变成深绿色，必须显式改回来 */
+html[data-palette="mist"] div[class*="language-"] {
+  background: #0f1524 !important;
+}
+
+html[data-palette="mist"] div[class*="language-"] :is(pre, code) {
+  color: #dde6f7 !important;
+}
+
+div[class*="language-"]::before {
+  top: 0.55rem !important;
+  right: 0.85rem !important;
+  color: var(--ink-3) !important;
+  font-family: var(--font-mono);
+  font-size: 0.68rem !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+html[data-palette="mist"] div[class*="language-"]::before {
+  color: rgba(200, 214, 234, 0.55) !important;
+}
+
+div[class*="language-"] pre {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+}
+
+div[class*="language-"] .code-copy-btn {
+  border: 1px solid var(--glass-line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--bg-1) 80%, transparent) !important;
+  color: var(--ink-2) !important;
+}
+
+div[class*="language-"].line-numbers-mode .line-numbers {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent !important;
+  color: rgba(190, 205, 228, 0.42) !important;
+}
+
+/* ---- 05·G  表格 ------------------------------------------------------------ */
+/* 保持 block + overflow-x：文档里有一行 200 多字的表格，
+   改成 display:table 会直接把玻璃面板撑破 */
+.theme-reco-md-content table {
+  display: block;
+  width: 100%;
+  margin: 1.6rem 0;
+  border: 1px solid var(--glass-line);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--r-md);
+  overflow-x: auto;
+  overflow-y: hidden;
+  font-size: 0.94rem;
+}
+
+.theme-reco-md-content thead th {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--ink-1);
+  font-weight: 700;
+  text-align: left;
+}
+
+.theme-reco-md-content :is(th, td) {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--glass-line);
+}
+
+.theme-reco-md-content tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.theme-reco-md-content tbody tr {
+  transition: background var(--dur-fast) var(--ease-out-expo);
+}
+
+.theme-reco-md-content tbody tr:hover {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+/* ---- 05·H  自定义容器 ------------------------------------------------------ */
+.theme-reco-md-content :is(.custom-container, .tip, .warning, .danger, .details) {
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--bg-1) 55%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* ---- 05·I  页面导航 / 元信息 ---------------------------------------------- */
+.page-nav {
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--glass-line);
+}
+
+.page-nav a,
+.page-meta a {
+  color: var(--ink-2) !important;
+}
+
+.page-nav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--bg-1) 50%, transparent);
+  transition: border-color var(--dur-fast) var(--ease-out-expo),
+    background var(--dur-fast) var(--ease-out-expo),
+    transform var(--dur-fast) var(--ease-spring);
+}
+
+.page-nav .nav-link:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  transform: translateY(-1px);
+}
+
+.page-nav .nav-link svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.page-meta {
+  border-top: 1px solid var(--glass-line);
+}
+
+/* ---- 05·J  magic card ------------------------------------------------------ */
+.magic-card {
+  border-color: var(--glass-line) !important;
+  border-radius: var(--r-lg) !important;
+}
+
+.magic-card .magic-card__bg {
+  border-radius: var(--r-lg) !important;
+  background: color-mix(in srgb, var(--bg-1) 60%, transparent) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+}
+
+.magic-card::before {
+  border-radius: var(--r-lg) !important;
+  background: radial-gradient(
+    220px circle at var(--x) var(--y),
+    var(--accent-2) 0,
+    var(--accent) 46%,
+    transparent 100%
+  ) !important;
+}
+
+/* =============================================================================
+   06  公告栏 · 弹窗 · 搜索 · 回到顶部
+   ========================================================================== */
+
+/* ---- 06·A  公告栏 ---------------------------------------------------------- */
+/* 插件真实结构：.bulletin-wrapper > .bulletin-title + .bulletin-content
+   （@vuepress-reco/vuepress-plugin-bulletin-popover 2.0.0-rc.94 已核对） */
+.bulletin-wrapper {
+  border: 1px solid var(--glass-line) !important;
+  border-radius: var(--r-lg) !important;
+  background: color-mix(in srgb, var(--bg-1) 78%, transparent) !important;
+  box-shadow: var(--glass-rim), var(--glass-shadow) !important;
+  color: var(--ink-2);
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(26px) saturate(170%);
+  backdrop-filter: blur(26px) saturate(170%);
+}
+
+.bulletin-wrapper .bulletin-title {
+  border-bottom: 1px solid var(--glass-line);
+  background: color-mix(in srgb, var(--accent) 26%, transparent) !important;
+  color: var(--ink-1) !important;
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.bulletin-wrapper .bulletin-content {
+  color: var(--ink-2);
+}
+
+.bulletin-wrapper .bulletin-content :is(h3, h4, h5, .title) {
+  font-family: var(--font-display);
+  color: var(--ink-1);
+  letter-spacing: -0.01em;
+}
+
+.bulletin-wrapper .bulletin-content a {
+  color: var(--accent-2) !important;
+}
+
+.bulletin-wrapper .bulletin-content hr {
+  border-color: var(--glass-line) !important;
+}
+
+.bulletin-wrapper .bulletin-content ul {
+  padding-left: 1.1rem;
+}
+
+.bulletin-wrapper .bulletin-content li::marker {
+  color: var(--accent);
+}
+
+.bulletin-wrapper .bulletin-content .btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)) !important;
+  box-shadow: 0 12px 26px -14px var(--glow);
+  color: #fff !important;
+}
+
+/* ---- 06·B  搜索框 ---------------------------------------------------------- */
+.search-box .DocSearch.DocSearch-Button {
+  width: 11rem;
+  height: 2.15rem;
+  padding: 0 0.5rem 0 0.15rem;
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--bg-1) 46%, transparent);
+  color: var(--ink-3);
+  font-size: 0.86rem;
+  cursor: text;
+  outline: none;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: border-color var(--dur-fast) var(--ease-out-expo),
+    background var(--dur-fast) var(--ease-out-expo),
+    box-shadow var(--dur-fast) var(--ease-out-expo);
+}
+
+.search-box .DocSearch.DocSearch-Button:hover {
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.search-box .DocSearch-Button-Container {
+  margin-left: 0.55rem;
+}
+
+.search-box .DocSearch-Button .DocSearch-Search-Icon {
+  position: relative;
+  top: 0.05rem;
+  width: 15px;
+  height: 15px;
+  color: var(--ink-3);
+}
+
+.search-box .DocSearch-Button-Placeholder {
+  font-size: 0.82rem;
+}
+
+.search-box .DocSearch-Button-Keys {
+  position: absolute;
+  right: 0.35rem;
+}
+
+.search-box .DocSearch-Button-Key {
+  border: 1px solid var(--glass-line);
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--bg-2) 70%, transparent);
+  box-shadow: none;
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 18px;
+}
+
+/* ---- 06·C  回到顶部 -------------------------------------------------------- */
+/* @vuepress/plugin-back-to-top 2.0.0-rc.55：按钮是 .vp-back-to-top-button，
+   里面的箭头是 .back-to-top-icon（mask + background 上色，不吃 color） */
+.vp-back-to-top-button {
+  --back-to-top-c-bg: transparent;
+  --back-to-top-c-icon: var(--ink-1);
+  --back-to-top-c-shadow: transparent;
+  border: 1px solid var(--glass-line);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--bg-1) 70%, transparent) !important;
+  box-shadow: var(--glass-rim), var(--glass-shadow) !important;
+  color: var(--ink-1);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  transition: transform var(--dur-fast) var(--ease-spring),
+    border-color var(--dur-fast) var(--ease-out-expo);
+}
+
+.vp-back-to-top-button:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.vp-back-to-top-button:hover .back-to-top-icon {
+  background: var(--accent-2);
+}
+
+.vp-back-to-top-button .vp-scroll-progress circle {
+  stroke: var(--accent) !important;
+}
+
+/* =============================================================================
+   07  更新日志专属版式
+   ========================================================================== */
 
 .update-log .theme-reco-md-content h3 {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin: 1.4rem 0 0.8rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid var(--update-log-border);
-  background: linear-gradient(135deg, var(--update-log-accent-soft), rgba(255, 255, 255, 0.02));
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  margin: 2rem 0 0.9rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+  border-radius: var(--r-pill);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 18%, transparent),
+    transparent
+  );
+  box-shadow: 0 10px 30px -12px var(--glow);
+  color: var(--ink-1);
+  font-size: 1rem;
   letter-spacing: 0.02em;
-  color: var(--update-log-title-text);
 }
 
 .update-log .theme-reco-md-content ul {
-  list-style: none;
-  margin: 0.75rem 0 1.35rem;
-  padding: 0;
   display: grid;
-  gap: 0.7rem;
+  gap: 0.65rem;
+  margin: 0.8rem 0 1.6rem;
+  padding: 0;
+  list-style: none;
 }
 
 .update-log .theme-reco-md-content li {
   position: relative;
   margin: 0;
-  padding: 0.9rem 1rem 0.9rem 2.75rem;
-  border: 1px solid var(--update-log-border);
-  border-radius: 16px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
-    var(--update-log-surface);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  padding: 0.85rem 1.1rem 0.85rem 2.6rem;
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--bg-1) 52%, transparent);
+  box-shadow: 0 12px 30px -20px rgba(0, 0, 0, 0.8);
+  color: var(--ink-2);
   line-height: 1.75;
-  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-  color: var(--update-log-text);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: transform var(--dur-fast) var(--ease-out-expo),
+    border-color var(--dur-fast) var(--ease-out-expo),
+    background var(--dur-fast) var(--ease-out-expo);
 }
 
 .update-log .theme-reco-md-content li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 1rem;
-  top: 1.15rem;
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--update-log-accent), #73e0ff);
-  box-shadow: 0 0 0 5px rgba(79, 140, 255, 0.12);
+  top: 1.35rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 16%, transparent),
+    0 0 14px var(--glow);
 }
 
 .update-log .theme-reco-md-content li:hover {
-  transform: translateY(-1px);
-  border-color: rgba(79, 140, 255, 0.45);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+  transform: translateX(3px);
+  border-color: color-mix(in srgb, var(--accent) 42%, transparent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
 .update-log .theme-reco-md-content li p {
   margin: 0;
 }
 
-.update-log .theme-reco-md-content li + li {
-  margin-top: 0;
+/* =============================================================================
+   08  降级与响应式
+   ========================================================================== */
+
+/* 不支持 backdrop-filter 时退回实色，避免糊成一团 */
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  .glass,
+  .navbar-container,
+  .page-content,
+  .bulletin-wrapper {
+    background-color: var(--bg-1) !important;
+  }
+}
+
+/* 老浏览器没有 color-mix：全部退回实色，宁可朴素也不能看不清字 */
+@supports not (background: color-mix(in srgb, red 50%, blue)) {
+  .navbar-container,
+  .page-content,
+  .bulletin-wrapper,
+  .glass {
+    background-image: none !important;
+    background-color: var(--bg-1) !important;
+  }
+
+  .rain-ambient {
+    display: none;
+  }
+
+  .theme-reco-md-content thead th,
+  .theme-reco-md-content blockquote,
+  .update-log .theme-reco-md-content li {
+    background: var(--bg-2);
+  }
+
+  .theme-container .theme-reco-md-content code {
+    background: var(--bg-2) !important;
+  }
+
+  .series-container a.series-item.router-link-active {
+    background: var(--bg-2);
+  }
+}
+
+@media (max-width: 1023px) {
+  .page-content {
+    padding: 1.6rem 1.25rem 2rem !important;
+    border-radius: var(--r-lg);
+  }
+
+  .rain-glass {
+    opacity: calc(0.32 * var(--rain-opacity));
+  }
+}
+
+@media (max-width: 640px) {
+  .page-content {
+    margin: 0.25rem 0 2rem;
+    padding: 1.25rem 1rem 1.6rem !important;
+    border-left: 0;
+    border-right: 0;
+    border-radius: var(--r-md);
+  }
+
+  .theme-reco-md-content {
+    font-size: 0.96rem;
+  }
+
+  .theme-reco-md-content h2 {
+    font-size: 1.32rem;
+  }
+}
+
+/* 尊重系统的「减少动态效果」 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .rain-sky,
+  .rain-glass,
+  .rain-flash {
+    display: none !important;
+  }
+}
+
+/* 打印 */
+@media print {
+  .rain-sky,
+  .rain-glass,
+  .rain-ambient,
+  .rain-grain,
+  .rain-flash,
+  .palette-switcher {
+    display: none !important;
+  }
+
+  .page-content {
+    border: 0;
+    box-shadow: none;
+    background: none;
+  }
 }

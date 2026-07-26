@@ -1,14 +1,28 @@
 <template>
   <nav v-if="prevNavLink || nextNavLink" class="page-nav">
     <p class="inner" :class="{ hasPrev: !!prevNavLink, hasNext: !!nextNavLink }">
-      <span v-if="prevNavLink" class="page-nav-item prev" @click="go(prevNavLink.link)">
-        ←
-        {{prevNavLink.text}}
+      <span
+        v-if="prevNavLink"
+        class="page-nav-item nav-link prev"
+        role="link"
+        tabindex="0"
+        @click="go(prevNavLink.link)"
+        @keydown.enter="go(prevNavLink.link)"
+      >
+        <LucideIcon name="arrow-left" size="1rem" />
+        <span class="nav-link__label">{{ prevNavLink.text }}</span>
       </span>
 
-      <span v-if="nextNavLink" class="page-nav-item next" @click="go(nextNavLink.link)">
-        {{nextNavLink.text}}
-        →
+      <span
+        v-if="nextNavLink"
+        class="page-nav-item nav-link next"
+        role="link"
+        tabindex="0"
+        @click="go(nextNavLink.link)"
+        @keydown.enter="go(nextNavLink.link)"
+      >
+        <span class="nav-link__label">{{ nextNavLink.text }}</span>
+        <LucideIcon name="arrow-right" size="1rem" />
       </span>
     </p>
   </nav>
@@ -18,6 +32,8 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vuepress/client'
 import { isPlainObject, isString } from 'vuepress/shared'
+
+import LucideIcon from '../LucideIcon.vue'
 
 import { getNavLink, useSeriesItems, usePageFrontmatter } from '@composables/index.js'
 
@@ -97,3 +113,33 @@ const go = (link) => {
   router.push(link)
 }
 </script>
+
+<style scoped>
+.page-nav :deep(.inner) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.page-nav :deep(.inner .next) {
+  margin-left: auto;
+}
+
+.nav-link {
+  cursor: pointer;
+  max-width: 46%;
+}
+
+.nav-link__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .nav-link {
+    max-width: 100%;
+  }
+}
+</style>

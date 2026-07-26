@@ -49,13 +49,6 @@ const title = computed(
     || ''
 )
 
-const sticky = computed(
-  () => page?.value?.frontmatter?.sticky
-    || ''
-)
-
-console.log(111, sticky)
-
 const shouldHideComments = computed(() => {
   const { hideComments: hideCommentsInSinglePage } = page?.value?.frontmatter
   const { hideComments: hideCommentsInAllPage } = options.value

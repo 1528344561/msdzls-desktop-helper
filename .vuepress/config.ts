@@ -2,12 +2,50 @@ import { defineUserConfig } from "vuepress";
 import recoTheme from "vuepress-theme-reco";
 import { viteBundler } from '@vuepress/bundler-vite'
 import { webpackBundler } from '@vuepress/bundler-webpack'
+import { getDirname, path } from 'vuepress/utils'
+
+const __dir = getDirname(import.meta.url)
+
+/**
+ * 顶掉主题的 SeriesItem：原件是函数式组件，SSR 预渲染时 useRoute() 返回 undefined，
+ * isActiveLink 读 route.hash 直接抛 TypeError，Vue 的 SSR 会把整棵子树吞掉——
+ * 构建照样 exit 0，但静态 HTML 里 .series-container 是个空壳，侧边栏条目一个不剩。
+ * 详见 theme-overrides/SeriesItem.js 顶部注释。
+ *
+ * Series/index.vue 用相对路径 './SeriesItem.js' 引它，alias 是按原始 specifier
+ * 匹配的，够不着完整路径，所以这里用 resolveId 靠 importer 认人。
+ */
+const recoSeriesItemSsrFix = {
+  name: 'reco-series-item-ssr-fix',
+  enforce: 'pre' as const,
+  resolveId(source: string, importer?: string) {
+    if (
+      source === './SeriesItem.js' &&
+      importer
+        ?.replace(/\\/g, '/')
+        .includes('vuepress-theme-reco/lib/client/components/Series/')
+    ) {
+      return path.resolve(__dir, 'theme-overrides/SeriesItem.js')
+    }
+    return null
+  },
+}
 
 export default defineUserConfig({
   title: "美食桌面版帮助文档",
   // title: "Rainy Blog",
 
   description: "美食大战老鼠桌面版官网帮助文档",
+
+  // 本机 8080 被另一个服务（sub2api）占着，但它只绑 IPv6 通配 [::]，
+  // vite 绑 IPv4 通配 0.0.0.0 能成功、不认为冲突，所以不会自动换端口；
+  // 而 Windows 的 localhost 优先解析到 ::1，浏览器打开 localhost:8080
+  // 命中的是那个服务，不是本站。换个端口避开。
+  port: 8099,
+  // 注意：reco 主题会在 onInitialized 里用 app.options.bundler = viteBundler(...)
+  // 整个换掉 bundler，这里传的 options 会被丢弃，只有「选 vite 还是 webpack」这个
+  // 选择本身生效。要给 vite 传配置得走下面 recoTheme 的 viteBundlerOptions。
+  // 见 node_modules/vuepress-theme-reco/lib/node/resolveBundlerConfig.js
   bundler: viteBundler(),
   // bundler: webpackBundler(),
   
@@ -19,9 +57,21 @@ export default defineUserConfig({
       'data-website-id': '4a8a1af4-c021-45e3-8a33-8b798e1d362f'
     }],
     ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@alpha', rel: 'stylesheet' }],
-    ['script', { async: '', src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@alpha' }]
+    ['script', { async: '', src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@alpha' }],
+    // 首帧前落地配色与雨量，避免刷新时闪一下默认主题
+    [
+      'script',
+      {},
+      `(function(){try{var d=document.documentElement;var list=['midnight','neon','moss','amber','mist'];var p=localStorage.getItem('rainy-palette');if(list.indexOf(p)<0){p='midnight'}d.setAttribute('data-palette',p);if(p==='mist'){d.classList.remove('dark')}else{d.classList.add('dark')}var r=localStorage.getItem('rainy-rain-level');d.style.setProperty('--rain-opacity',r==='0'?'0':(r==='1'?'0.55':'1'))}catch(e){document.documentElement.setAttribute('data-palette','midnight')}})();`,
+    ],
   ],
   theme: recoTheme({
+    // 主题只认这里传的 vite 配置，见上面 bundler 处的说明
+    viteBundlerOptions: {
+      viteOptions: {
+        plugins: [recoSeriesItemSsrFix],
+      },
+    },
     colorMode: "dark",
     autoSetSeries: true,
     logo: "https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/2/4/0x24a10800.png",
@@ -89,7 +139,7 @@ export default defineUserConfig({
             text:"一键挂机",
             link:"auto_play"
           },{
-            text:"★自定义战斗序列[荐]",
+            text:"自定义战斗序列 · 推荐",
             link:"auto_fight_list"
           },
           {
@@ -112,7 +162,7 @@ export default defineUserConfig({
         {
           text:"高级功能",
           children:[{
-            text:"高级功能[荐]",
+            text:"高级功能 · 推荐",
             link:"advanced"
           }]
         },
@@ -160,7 +210,7 @@ export default defineUserConfig({
       body: [
         {
           type: "text",
-          content: `🎉🎉🎉 桌面版已支持QQ游戏大厅`,
+          content: `桌面版已支持 QQ 游戏大厅`,
           style: "font-size: 12px;",
         },
         {
@@ -208,7 +258,7 @@ export default defineUserConfig({
           type: "text",
           content: `
           <ul>
-            <li><a href="https://report.rainysnow.com">Issues[问题反馈]<a/></li>
+            <li><a href="https://report.rainysnow.com">Issues[问题反馈]</a></li>
           </ul>`,
           style: "font-size: 12px;",
         },

@@ -1,20 +1,28 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-update">
-    <polyline points="23 4 23 10 17 10" />
-    <polyline points="1 20 1 14 7 14" />
-    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+  <!-- Lucide · history -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="nav-icon"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+    <path d="M3 3v5h5" />
+    <path d="M12 7v5l4 2" />
   </svg>
 </template>
 
-<script setup>
-// IconUpdate - 更新/刷新图标
-</script>
-
 <style scoped>
-.icon-update {
+.nav-icon {
+  display: inline-block;
   width: 1em;
   height: 1em;
   vertical-align: middle;
-  display: inline-block;
 }
 </style>
