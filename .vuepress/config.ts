@@ -72,7 +72,7 @@ export default defineUserConfig({
         // Windows 下依赖预构建目录的原子重命名会被锁定，导致 504 Outdated Optimize Dep；
         // 关闭开发期预构建，改由 Vite 按模块即时处理，避免首页动态模块加载失败。
         optimizeDeps: {
-          disabled: true,
+          noDiscovery: true,
         },
         plugins: [recoSeriesItemSsrFix],
       },

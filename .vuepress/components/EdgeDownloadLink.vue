@@ -11,35 +11,36 @@
     </a>
   </span>
 
-  <div v-if="visible" class="edge-download-link__overlay" @click.self="noop">
+  <Teleport to="body">
+    <div v-if="visible" class="edge-download-link__overlay" @click.self="noop">
     <div
       class="edge-download-link__modal"
       role="dialog"
       aria-modal="true"
       aria-labelledby="edge-download-title"
     >
-      <h3 id="edge-download-title">下载遇到问题?</h3>
-      <p class="edge-download-link__desc">检测到你正在使用<strong> Edge 浏览器</strong>，下载软件后, 请按下面操作处理下载拦截问题。</p>
+      <div class="edge-download-link__body">
+        <h3 id="edge-download-title">下载遇到问题?</h3>
+        <p class="edge-download-link__desc">检测到你正在使用<strong> Edge 浏览器</strong>，下载软件后, 请按下面操作处理下载拦截问题。</p>
 
-      <table class="edge-download-link__table">
-        <tr>
-          <td>
-            <img :src="downloadImage" alt="下载提示" />
-            <p class="edge-download-link__highlight"><strong>1.右键展开点保留</strong></p>
-          </td>
-          <td>
-            <img :src="keepImage" alt="保留按钮" />
-            <p class="edge-download-link__highlight"><strong>2.点击此按钮, 点保留</strong></p>
-          </td>
-        </tr>
-      </table>
-      <p> 此弹窗是作者实在忍受不了后才做的, 如造成不便敬请谅解</p>
-      <p> 请原谅我这么啰嗦，如果我不做弹窗，那么真的会有人在<strong>答案不管贴在下载的上面还是下面</strong>的情况下，愣是<strong>没看到</strong>，然后去群里问<strong>为什么无法下载</strong></p>
-      <p> <del>请原谅我这么啰嗦，如果我把下载放在最上面，那么真的会有人在<strong>答案就贴在下载的下面</strong>的情况下，告诉我<strong>没看到</strong>，然后去群里问<strong>为什么无法下载</strong></del></p>
+        <table class="edge-download-link__table">
+          <tr>
+            <td>
+              <img :src="downloadImage" alt="下载提示" />
+              <p class="edge-download-link__highlight"><strong>1.右键展开点保留</strong></p>
+            </td>
+            <td>
+              <img :src="keepImage" alt="保留按钮" />
+              <p class="edge-download-link__highlight"><strong>2.点击此按钮, 点保留</strong></p>
+            </td>
+          </tr>
+        </table>
+        <p> 此弹窗是作者实在忍受不了后才做的, 如造成不便敬请谅解</p>
+        <p> 请原谅我这么啰嗦，如果我不做弹窗，那么真的会有人在<strong>答案不管贴在下载的上面还是下面</strong>的情况下，愣是<strong>没看到</strong>，然后去群里问<strong>为什么无法下载</strong></p>
+        <p> <del>请原谅我这么啰嗦，如果我把下载放在最上面，那么真的会有人在<strong>答案就贴在下载的下面</strong>的情况下，告诉我<strong>没看到</strong>，然后去群里问<strong>为什么无法下载</strong></del></p>
+      </div>
+
       <div class="edge-download-link__actions">
-        <button type="button" class="edge-download-link__secondary edge-download-link__button" @click="closeModal">
-          关闭
-        </button>
         <button
           type="button"
           class="edge-download-link__primary edge-download-link__button"
@@ -48,9 +49,13 @@
         >
           {{ countdown > 0 ? `${countdown} 秒后可点击立即下载` : closeText }}
         </button>
+        <button type="button" class="edge-download-link__secondary edge-download-link__button" @click="closeModal">
+          关闭
+        </button>
       </div>
     </div>
-  </div>
+    </div>
+  </Teleport>
 </template>
 
 <script lang="ts" setup>
@@ -172,25 +177,38 @@ onBeforeUnmount(() => {
 }
 
 .edge-download-link__overlay {
-  position: fixed;
+  position: fixed !important;
   inset: 0;
   z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  display: block;
+  width: 100vw;
+  height: 100dvh;
+  box-sizing: border-box;
+  padding: 16px;
+  overflow-y: auto;
   background: rgba(0, 0, 0, 0.55);
 }
 
 .edge-download-link__modal {
   width: min(760px, 100%);
-  max-height: calc(100vh - 40px);
-  overflow-y: auto;
-  padding: 24px;
+  height: min(860px, calc(100dvh - 32px));
+  max-height: calc(100dvh - 32px);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 16px;
+  margin: 0 auto;
+  box-sizing: border-box;
   border-radius: 16px;
   background: #fff;
   color: #222;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.edge-download-link__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
 .edge-download-link__desc {
@@ -221,16 +239,20 @@ onBeforeUnmount(() => {
 
 .edge-download-link__actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   gap: 12px;
-  margin-top: 20px;
+  flex: 0 0 auto;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
 }
 
 .edge-download-link__button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  flex: 1 1 0;
+  width: auto;
   min-height: 44px;
   padding: 10px 18px;
   border: 1px solid transparent;
@@ -240,6 +262,27 @@ onBeforeUnmount(() => {
   line-height: 1.4;
   cursor: pointer;
   box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .edge-download-link__overlay {
+    padding: 12px;
+  }
+
+  .edge-download-link__modal {
+    height: calc(100dvh - 24px);
+    max-height: calc(100dvh - 24px);
+    padding: 18px 16px 12px;
+  }
+
+  .edge-download-link__actions {
+    flex-direction: column;
+  }
+
+  .edge-download-link__button {
+    flex: 0 0 auto;
+    width: 100%;
+  }
 }
 
 .edge-download-link__primary {
