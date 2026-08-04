@@ -2,6 +2,22 @@
 pageClass: update-log
 ---
 
+### 0.96.9.59
+
+<div class="update-log-release-date">发布日期: 2026-07-30</div>
+
+- 修复批量挂机封号判定问题
+- 批量任务增加执行时间上限
+- 修复福利打卡问题
+- 新增自定义序列-福利打卡
+
+### 0.96.9.58
+
+<div class="update-log-release-date">发布日期: 2026-07-21</div>
+
+- 修复卡组选择问题
+- 优化部分用户锁定地图闪退问题
+
 ### 0.96.9.57
 
 <div class="update-log-release-date">发布日期: 2026-07-15</div>
