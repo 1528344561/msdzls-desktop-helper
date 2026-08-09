@@ -16,6 +16,12 @@ next:
 
 无法打开下载页面?[请修改电脑DNS](https://www.bilibili.com/video/BV1bY411z7u1/)
 
+## 若你用其他软件 / 游戏 提示flash有问题或缺少 flash 
+
+例如:
+![alt text](./img/flash_tip.jpg)
+
+[点击下载 flash 三件套](https://rainy.lanzoul.com/imOfH3haadxc), 并安装, 即可对任意软件通用
 
 ## 未按要求安装Flash可能出现以下问题(必看)
 
