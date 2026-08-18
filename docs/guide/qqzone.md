@@ -1,6 +1,18 @@
 # 第三方玩家使用方法及注意事项
 
-## QQ游戏大厅玩家登录
+::: tip 先看这里：三种平台不是一回事
+
+| 图标 | 平台 | 怎么判断 |
+| --- | --- | --- |
+| <img src="https://www.4399.com/favicon.ico" alt="4399平台图标" width="32" height="32" style="background:#fff;padding:4px;"> | **4399服（QQ登录4399）** | 用 QQ 登录 4399 也仍然是 4399服，按[4399玩家登录教程](./introduce.md#4399玩家登录)操作 |
+| <img src="https://qzonestyle.gtimg.cn/qzone/v8/img/Qzone.svg" alt="QQ空间平台图标" width="32" height="32" style="background:#fff;padding:4px;"> | **QQ空间服 / 3366服** | 账号栏填 QQ号，密码栏填 `QQ空间` 或 `3366`，不要填 QQ密码 |
+| <img src="https://qqgame.qq.com/favicon.ico" alt="QQ游戏大厅平台图标" width="32" height="32" style="background:#fff;padding:4px;"> | **QQ游戏大厅服** | 账号栏填 QQ号，**密码栏填 `QQ游戏新`**；启动后扫码登录 QQ游戏大厅，再选服进入 |
+
+**重点：**“QQ登录4399”里的 QQ 只是登录方式，不代表 QQ空间服，更不代表 QQ游戏大厅服。请按实际游戏平台选择。
+
+:::
+
+## <img src="https://qqgame.qq.com/favicon.ico" alt="QQ游戏大厅平台图标" width="24" height="24" style="background:#fff;padding:3px;"> QQ游戏大厅服玩家登录
 
 1. 打开桌面版
 
@@ -8,7 +20,7 @@
 
 账号:QQ账号(填你的QQ账号,不要只填QQ账号四个字)
  
-密码:(**这里不要填QQ密码,填 QQ游戏新**)
+密码:(**这里不要填QQ密码,填 `QQ游戏新`**)
 
 服务器:输入服务器号码对应的数字
 
@@ -16,7 +28,7 @@
 
 然后双击启动, 进入后扫码登录, 选服进入即可
 
-## QQ空间 3366 玩家登录
+## <img src="https://qzonestyle.gtimg.cn/qzone/v8/img/Qzone.svg" alt="QQ空间平台图标" width="24" height="24" style="background:#fff;padding:3px;"> QQ空间服 / 3366服玩家登录
 
 ### 新方法(自0.96.9.16起支持)
 
