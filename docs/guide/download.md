@@ -32,6 +32,10 @@
 
 [点我下载强卡器](https://rainy.lanzoul.com/b00efpw8vc) 提取码2333
 
+
+
+[没有电脑也可以挂机?](https://docs.qq.com/form/page/DVVJ1WEJubFZ0dGNv)
+
 ## 双击安装包, 没有反应?
 
 是因为你的系统设置启用了安全策略, 解决办法可以[参照这篇微软官方文章](https://learn.microsoft.com/zh-cn/answers/questions/5544639/question-5544639)
