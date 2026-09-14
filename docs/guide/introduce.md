@@ -16,17 +16,9 @@
 
 ## 快速上手. 下载→安装→使用
 
-### 所有你可能需要用到的工具汇总
+[点击立即前往下载汇总页面](./download.md)
 
-**无法打开下载页面?[请修改电脑DNS](https://www.bilibili.com/video/BV1bY411z7u1/)**
-
-[点我下载桌面版](https://rainy.lanzoul.com/b048nro4b) 提取码2333
-
-[点我下载纯净Flash](https://rainy.lanzoul.com/ixPci1ictx6f) 提取码2333
-
-[推荐的解压软件](https://www.bandisoft.com/bandizip/dl.php?web) (没有好用的解压软件的可以下载这个,比较推荐,但非必选)
-
-### 程序目录结构
+<!-- ### 程序目录结构
 
 ```
 
@@ -42,7 +34,7 @@
 
     └─Runtime
 
-```
+``` -->
 
 ## 登录游戏
 
