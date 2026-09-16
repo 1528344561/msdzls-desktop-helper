@@ -32,13 +32,9 @@
 
 [点我下载强卡器](https://rainy.lanzoul.com/b00efpw8vc) 提取码2333
 
-
-
 [推荐的解压软件](https://www.bandisoft.com/bandizip/dl.php?web) (没有好用的解压软件的可以下载这个,比较推荐,但非必选)
 
 [没有电脑也可以挂机?](https://docs.qq.com/form/page/DVVJ1WEJubFZ0dGNv)
-
-
 
 ## 双击安装包, 没有反应?
 
