@@ -1,6 +1,7 @@
 import { defineClientConfig } from 'vuepress/client'
 
 import RainRoot from './components/RainRoot.vue'
+import { scheduleAnalytics } from './analytics'
 
 const DOCSEARCH_APP_ID = 'PJ9U6DIZSJ'
 const DOCSEARCH_API_KEY = '75f85ee4ec6d355a58cd133fa1f12240'
@@ -52,6 +53,8 @@ export default defineClientConfig({
     if (typeof window === 'undefined') {
       return
     }
+
+    scheduleAnalytics()
 
     window.setTimeout(() => {
       initDocSearch()

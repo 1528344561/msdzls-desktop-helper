@@ -50,12 +50,7 @@ export default defineUserConfig({
   // bundler: webpackBundler(),
   
   head: [
-    ['link', { rel: 'icon', href: 'https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/2/4/0x24a10800.png' }]
-    ,['script', {
-      defer: '',
-      src: 'https://umami.rainysnow.com/script.js',
-      'data-website-id': '4a8a1af4-c021-45e3-8a33-8b798e1d362f'
-    }],
+    ['link', { rel: 'icon', href: 'https://q.ms.huanlecdn.com/4399/cdn.123u.com/images/2/4/0x24a10800.png' }],
     ['link', { href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@alpha', rel: 'stylesheet' }],
     ['script', { async: '', src: 'https://cdn.jsdelivr.net/npm/@docsearch/js@alpha' }],
     // 首帧前落地配色与雨量，避免刷新时闪一下默认主题
