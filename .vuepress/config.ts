@@ -92,109 +92,109 @@ export default defineUserConfig({
             children:[
               {
                 text:"前置知识",
-                link:"pre_knowledge"
+                link:"/docs/guide/pre_knowledge.html"
               },{
                 text:"Flash",
-                link:"install_flash.md"
+                link:"/docs/guide/install_flash.html"
               },{
                 text:"开始安装",
-                link:"introduce"
+                link:"/docs/guide/introduce.html"
               }
             
             ]
           },
           {
             text:"无法打开?",
-            link:"main_window_enter_failed",
+            link:"/docs/guide/main_window_enter_failed.html",
             children:[{
               text:"打不开主程序",
-              link:"main_window_enter_failed"
+              link:"/docs/guide/main_window_enter_failed.html"
             },{
               text:"打不开游戏窗口",
-              link:"game_window_enter_failed"
+              link:"/docs/guide/game_window_enter_failed.html"
             },{
               "text":"无法进入游戏",
-              "link":"game_enter_failed"
+              "link":"/docs/guide/game_enter_failed.html"
             },{
               "text":"游戏偶尔崩溃",
-              "link":"game_crash"
+              "link":"/docs/guide/game_crash.html"
             }]
           },{
             "text":"软件配置与迁移",
-            "link":"config"
+            "link":"/docs/guide/config.html"
           },{
             "text":"常用网站",
-            'link':"friend_link"
+            'link':"/docs/guide/friend_link.html"
           },{
             "text":"BUG反馈",
-            'link':"bug_report"
+            'link':"/docs/guide/bug_report.html"
           }]
         },
         {
           text:"初级使用",
           children:[{
             text:"自动练级",
-            link:"auto_level_up"
+            link:"/docs/guide/auto_level_up.html"
           },{
             text:"一键挂机",
-            link:"auto_play"
+            link:"/docs/guide/auto_play.html"
           },{
             text:"自定义战斗序列 · 推荐",
-            link:"auto_fight_list"
+            link:"/docs/guide/auto_fight_list.html"
           },
           {
             text:"公会任务",
-            link:"guild_task"
+            link:"/docs/guide/guild_task.html"
           },{
             text:"挂机魔塔",
-            link:"auto_mota"
+            link:"/docs/guide/auto_mota.html"
           },{
             text:"粉红保罗",
-            link:"pink_paul"
+            link:"/docs/guide/pink_paul.html"
           },{
             text:"温馨礼包",
-            link:"warm_gift"
+            link:"/docs/guide/warm_gift.html"
           },{
             text:"WPE",
-            link:"wpe"
+            link:"/docs/guide/wpe.html"
           }]
         },
         {
           text:"高级功能",
           children:[{
             text:"高级功能 · 推荐",
-            link:"advanced"
+            link:"/docs/guide/advanced.html"
           }]
         },
         {
           text:"自动化",
           children:[{
             text:"全自动签到",
-            link:"auto_sign"
+            link:"/docs/guide/auto_sign.html"
           },{
             text:"全自动公会任务",
-            link:"auto_guild_task"
+            link:"/docs/guide/auto_guild_task.html"
           },{
             text:"全自动挂机刷图",
-            link:"auto_guaji"
+            link:"/docs/guide/auto_guaji.html"
           }]
         }
       ],
       "/docs/theme-reco/": [
         {
           text: "module one",
-          children: ["home", "theme"],
+          children: ["home.html", "theme.html"],
         },
         {
           text: "module two",
-          children: ["api", "plugin"],
+          children: ["api.html", "plugin.html"],
         },
       ],
     },
     navbar: [
       { text: "首页", link: "/" , icon: 'IconHome'},
-      {text: "立即下载", link: "/docs/guide/download", icon: 'IconDownload'},
-      {text: "更新日志", link: "/docs/guide/update_log", icon: 'IconUpdate'},
+      {text: "立即下载", link: "/docs/guide/download.html", icon: 'IconDownload'},
+      {text: "更新日志", link: "/docs/guide/update_log.html", icon: 'IconUpdate'},
       {text: "关于", link: "/docs/about/", icon: 'IconAbout'},
       // { text: "Categories", link: "/categories/reco/1.html" },
       // { text: "Tags", link: "/tags/tag1/1.html" },
